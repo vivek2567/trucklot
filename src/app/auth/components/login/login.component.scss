@@ -1,0 +1,343 @@
+@import "../../../../assets/scss/variable";
+
+.login-sec {
+
+  height: 98vh;
+
+  position: relative;
+
+  ::ng-deep .p-component,
+
+  .p-component * {
+
+    width: 100%;
+
+
+  }
+
+  .p-component span {
+
+    width: 100%;
+
+  }
+
+  .p-inputtext {
+
+    width: 100%;
+
+  }  
+
+  ::ng-deep .p-button {
+
+    font-size: $heading5;
+
+    font-weight: $fw-500;
+
+    min-height: 3.375rem;
+
+  }
+
+  ::ng-deep .p-button.p-button-link {
+
+    font-size: 16px;
+
+    padding-right: 0;
+
+  }
+
+  .logo-sec {
+   
+
+    margin-top: 10%;
+
+    // @media (max-width: $xxl) {
+
+    //  margin-top: 70px;
+
+    // }            
+
+    @media (max-width: $md) {
+
+      margin-top: 40px;
+
+     }
+
+  }
+
+}
+
+.login-left {
+
+  background: $primary;
+
+  min-height: 100vh;
+
+  position: relative;
+
+  padding-bottom: 3.75rem;
+
+  @media (max-width: $lg) {
+
+    min-height: unset;
+
+    padding: 3.75rem;
+
+  }
+
+ @media (max-width: $md) {
+
+padding: 0px 0px 30px;
+
+  }
+
+  ::after {
+
+    content: "";
+
+    background-image: url(/assets/images/login-wavetop.png);
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    height: 100%;
+
+    width: 100%;
+
+    z-index: 0;
+
+    background-repeat: no-repeat;
+
+    background-position: left top;
+
+    opacity: 0.5;
+
+    background-size: 16%;
+
+   
+
+    @media (max-width: $md) {
+
+    display: none;
+
+    }
+
+  }
+
+  ::before {
+
+    content: "";
+
+    background-image: url(/assets/images/login-wavebottom.png);
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    height: 100%;
+
+    width: 100%;
+
+    z-index: 0;
+
+    background-repeat: no-repeat;
+
+    background-position: right bottom;
+
+    opacity: 0.5;
+
+    background-size: 40%;
+
+   
+
+    @media (max-width: $md) {
+
+      display: none;
+
+      }
+
+  }
+
+  h1 {
+
+    font-size: 44px;
+
+    margin: 1rem 0rem 0.4375rem;
+
+    @media (max-width: $xxl) {
+
+      font-size: 36px;
+
+      margin-top: 10px;
+
+    }
+
+  }
+
+  p {
+
+    font-size: 1rem;
+
+    font-weight: $fw-400;
+
+    @media (max-width: $xxl) {
+
+      font-size: 18px;
+
+    }
+
+  }
+
+}
+
+.login-right {
+.bottom-spece {
+    margin-bottom: 24px;
+}
+
+  form {
+
+    max-width: 31.25rem;
+
+    margin: auto;
+
+    @media (max-width: $xl) {
+
+      max-width: 25rem;
+
+      padding: 1.875rem;
+
+    }
+
+    h3 {
+
+      font-size: 2.8rem;
+
+      font-weight: $fw-500;
+
+      margin-bottom: 34px;
+
+      @media (max-width: $xl) {
+
+        margin: 0;
+
+      }      @media (max-width: $md) {
+
+        font-size: 28px;
+
+        margin: 0 0rem 1.25rem;
+
+      }
+
+ 
+
+    }
+
+    .p-inputtext {
+
+      min-width: 31.25rem;
+      min-height: 56px;
+      font-size: 16px;
+      font-weight: 400;
+      color: $gray-600 !important;
+
+
+      @media (max-width: $xl) {
+
+        min-width: 25rem;
+
+      }
+
+      @media (max-width: $lg) {
+
+        min-width: 20.625rem;
+
+      }
+
+    }
+
+    label {
+
+      font-size: $heading5;
+
+      font-weight: $fw-500;
+
+ 
+
+    }
+
+    .sub-label {
+
+      font-size: $heading5;
+
+      font-weight: $fw-400;
+
+      margin-left: 0.625rem;
+
+    }
+
+    .my-36{
+
+      margin-bottom: 20px;
+
+      margin-top: 20px;
+      position: relative;
+      z-index: 9;
+  
+
+    }
+
+  }
+
+}
+
+ 
+
+.p-element {
+
+  z-index: 9;
+
+  &.img-truck {
+
+    position: absolute;
+
+    width: 50%;
+
+    @media (max-width: $lg) {
+
+      display: none;
+
+    }
+
+  }
+
+}
+.email-outer {
+  label {
+    margin-bottom: 15px;
+}
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 16px !important;
+  font-weight: 400;
+  color: $gray-600 !important;
+}
+
+input::placeholder {
+  font: 16px !important;
+}
+.passwod-text {
+  p {
+    padding: 0px;
+    a {
+      color: $primary !important;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+}

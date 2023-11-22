@@ -1,0 +1,26 @@
+<div class="sidebar" [ngClass]="{'customopen': isSidebarOpen}">
+   <ul class="layout-menu">
+      <li class="no-hover">
+
+         <img src="assets/images/logo-menu.svg" alt="Prime Blocks" class="prime-logo mt-3 " />
+         <img src="assets/images/small-logo.svg" alt="Prime Blocks" class="prime-logo1 mt-3 " />
+
+      </li>
+      <li routerLinkActive="active" routerLink="/manager/dashboard"><img src="assets/images/sidebar/dashboard.svg" /> <span>Dashboard</span></li>
+      <li routerLinkActive="active" routerLink="/manager/booking" ><img
+            src="assets/images/sidebar/booking.svg" /><span>Bookings</span></li>
+      <li  routerLinkActive="active" routerLink="/manager/parking"><img
+            src="assets/images/sidebar/parking-list.svg" /><span>Parking List</span>
+      </li>
+      <li routerLinkActive="active" routerLink="/manager/profile"><img
+            src="assets/images/sidebar/profile.svg" /><span>Profile</span></li>
+      <li routerLinkActive="active" routerLink="/manager/company-profile"><img
+            src="assets/images/sidebar/compant-details.svg" /><span>Company Profile</span></li>
+      <li class="grey-out" routerLinkActive="active"><img src="assets/images/sidebar/transaction.svg" /><span>Transaction</span></li>
+      <li class="grey-out"  routerLinkActive="active"><img src="assets/images/sidebar/messages.svg" /><span>Messages</span></li>
+      <li class="grey-out"  routerLinkActive="active"><img src="assets/images/sidebar/review.svg" /><span>Review</span></li>
+
+      <li class="grey-out" routerLinkActive="active"><img src="assets/images/sidebar/help.svg" /><span>Help</span></li>
+      <li (click)="logout()"><img src="assets/images/sidebar/logout.svg" /><span>Logout</span></li>
+   </ul>
+</div>

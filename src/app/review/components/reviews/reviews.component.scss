@@ -1,0 +1,159 @@
+@import "../../../../assets/scss/variable";
+
+.grid {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.table-card {
+    background: $light;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    min-height: calc(100vh - 13rem);
+
+    .table-top {
+        padding: 24px 24px 8px;
+        display: flex;
+        justify-content: space-between;
+
+        .all-tab-active {
+            color: $primary;
+            font-weight: $fw-500;
+            font-size: $heading6;
+        }
+
+        .sub-text {
+            font-size: $heading2;
+            font-weight: $fw-500;
+            color: $gray-800;
+        }
+
+        .rating-wraper {
+            h3 {
+                font-size: $heading3;
+                color: $dark;
+                font-weight: $fw-600;
+            }
+        }
+    }
+
+    .parking-lot-wraper {
+        color: $gray-800;
+        font-size: $heading5;
+        font-weight: $fw-500;
+
+        .state-number {
+            font-size: $heading6;
+            font-weight: $fw-400;
+            color: $gray-600;
+        }
+    }
+
+    .total-booking-wraper {
+        border-radius: $heading4;
+        border: 1px solid $gray-400;
+        height: 100%;
+    }
+
+    .survey-overall {
+        h4 {
+            color: $dark;
+            font-size: $heading3;
+            font-weight: $fw-500;
+
+            span {
+
+                font-size: $heading5;
+                color: $gray-700;
+                font-weight: $fw-400;
+            }
+        }
+
+        .date-wrap {
+            font-size: $heading6;
+            color: $gray-600;
+            font-weight: $fw-400;
+        }
+
+        .pi-star-fill {
+            &::before {
+                color: $pi-star;
+            }
+        }
+
+        .parking-lot-number {
+
+
+            h3 {
+                font-size: $paragraph1;
+                color: $dark;
+                font-weight: $fw-400;
+
+            }
+
+            p {
+                font-size: $heading6;
+                color: $gray-600;
+                font-weight: $fw-400;
+                padding-right: 23px;
+
+
+            }
+        }
+
+    }
+
+    .width-100 {
+        width: 100%;
+    }
+
+    .spacing-bottom {
+        padding-top: 20px;
+    }
+
+}
+
+.spacing-review {
+    padding: 24px 24px;
+}
+
+.modal-outer-wraper {
+    text-align: center;
+
+    .modal-inner-wraper {
+        h3 {
+            font-size: $heading2;
+            font-weight: $fw-500;
+            color: $primary;
+            padding-top: 20px;
+            padding-bottom: 12px;
+        }
+
+        p {
+            color: $dark;
+            font-size: $heading5;
+            font-weight: $fw-500;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+::ng-deep .p-button {
+
+    font-size: $heading5;
+
+    font-weight: $fw-500;
+
+    min-height: 3.375rem;
+    width: 100%;
+
+}
+
+::ng-deep .p-button.p-button-link {
+
+    font-size: 16px;
+
+    padding-right: 0;
+
+}

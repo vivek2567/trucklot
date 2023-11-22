@@ -1,0 +1,1196 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../src/assets/scss/variable";
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    overflow: scroll;
+  }    
+}
+
+.sidebar-col {
+  background: $gray-500;
+  height: 100vh;
+  width: 14.375rem;
+}
+
+.p-datatable {
+  .p-datatable-thead {
+    &>tr {
+      &>th {
+        color: $gray-600;
+        font-size: $heading5;
+        font-weight: $fw-500;
+        background: $light;
+        border: transparent;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+
+  .p-datatable-tbody {
+    &>tr {
+      &>td {
+
+        padding: 0rem 1rem;
+        font-size: $heading6;
+        border: 0.0625rem solid transparent;
+        font-weight: 400;
+        color: $gray-900;
+        height: 51px;
+        
+        word-break: break-word;
+      }
+    }
+  }
+
+  &.p-datatable-striped {
+    .p-datatable-tbody {
+      &>tr {
+        &:nth-child(even) {
+          background: $tintshade-100;
+        }
+
+        &:nth-child(odd) {
+          background: $tintshade-200;
+        }
+      }
+    }
+  }
+}
+
+.login-sec {
+  .p-button {
+    color: $light;
+    background: $primary !important;
+    border: 0.0625rem solid $primary !important;
+    border-radius: 0.5rem;
+
+    &:active {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+    }
+
+    &:hover {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+    }
+  }
+}
+
+.p-button {
+  &.p-button-link {
+    color: $primary !important;
+    background: transparent !important;
+    border: transparent !important;
+  }
+
+  &.p-button-outlined {
+    background-color: transparent;
+    color: $primary !important;
+    border: 0.0625rem solid $primary !important;
+    font-size: $heading5;
+    font-weight: $fw-500;
+    min-height: 44px;
+
+    // padding: 0px 27px;
+    &:active {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+      color: $light !important;
+    }
+
+    &:hover {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+      color: $light !important;
+    }
+  }
+}
+
+.form-deatail {
+  label {
+    font-size: $heading5;
+    font-style: normal;
+    font-weight: $fw-500;
+    color: $gray-700;
+  }
+
+  input {
+    border-color: $gray-500 !important;
+    max-width: 28.125rem;
+    min-height: 56px;
+    z-index: unset;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+
+  .p-dropdown {
+    width: 28.125rem;
+  }
+
+  .p-inputgroup-addon {
+    background: transparent;
+  }
+
+  .p-inputgroup {
+    max-width: 28.125rem;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+}
+
+.form-deatail .p-inputgroup-addon:first-child,
+.form-deatail .p-inputgroup button:first-child,
+.form-deatail .p-inputgroup input:first-child,
+.p-inputgroup>.p-inputwrapper:first-child>.p-component,
+.p-inputgroup>.p-inputwrapper:first-child>.p-component>.p-inputtext {
+  border-right: 0 !important;
+}
+
+.form-deatail .field.grid,
+.form-deatail .formgrid.grid {
+  margin-top: 0;
+  margin-bottom: 0.9375rem;
+}
+
+.dashboard-wrapper {
+  background: $bluelight-400;
+}
+
+.divider {
+  border: 0.0625rem solid $secondary;
+  margin-bottom: 1.875rem;
+}
+
+.p-datatable th:last-child,
+.p-datatable td:last-child {
+  text-align: right;
+  padding-right: 1.5rem !important;
+}
+
+.p-datatable th:first-child,
+.p-datatable td:first-child {
+  padding-left: 1.5rem !important;
+}
+
+.p-datatable td:last-child {
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.p-paginator {
+  // margin-top: 1.375rem;
+  background-color: transparent;
+
+  .p-paginator-pages {
+    .p-paginator-page {
+      &.p-highlight {
+        background: $primary;
+        border-color: $primary;
+        color: $light;
+      }
+    }
+  }
+}
+.p-paginator .p-paginator-pages .p-paginator-page,
+.p-paginator-prev,
+.p-paginator-next {
+  border: 0.0625rem solid $secondary;
+  color: $gray-700;
+  min-width: 1.6875rem;
+  height: 1.6875rem;
+  font-size: $paragraph1;
+  font-weight: $fw-400;
+}
+
+.p-paginator-first,
+.p-paginator-last {
+  display: none;
+}
+
+// .pi {
+//   &.pi-pencil {
+//     margin-left: 0.9375rem;
+//   }
+// }
+.add-image {
+  .p-button {
+    color: $gray-900;
+    background: $bluelight-400;
+    border: 0.0625rem solid $primary;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+      box-shadow 0.2s;
+    border-radius: 0.375rem;
+    min-height: 10.125rem;
+    min-width: 100%;
+    border-style: dashed;
+    font-size: $heading6;
+    font-weight: $fw-400;
+    margin-top: 1.6875rem;
+    justify-content: center;
+    border-width: 2px;
+
+    @media (max-width: 768px) {
+      // min-height: auto;
+      margin-top: 0rem;
+    }
+    .ng-star-inserted {
+      flex: unset;
+    }
+    &:hover {
+
+      background-color: $bluelight-400 !important;
+      border: 0.0625rem solid $primary !important;
+      border-style: dashed !important;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+        box-shadow 0.2s !important;
+      border-width: 2px !important;
+    }
+  }
+}
+
+.add-morebtn {
+  .p-element {
+    &.p-button {
+      &.p-component {
+        min-height: 2.75rem;
+        background-color: transparent;
+        color: $gray-600;
+        border: 0.0625rem solid $gray-500;
+        font-size: $heading5;
+        font-weight: $fw-500;
+      }
+    }
+  }
+}
+
+.next-btn {
+  .p-button {
+    background-color: $primary;
+    min-height: 3rem;
+    min-width: 6.875rem;
+
+    &:active {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+    }
+
+    &:hover {
+      background-color: $hovercolor !important;
+      border: 0.0625rem solid $hovercolor !important;
+    }
+  }
+}
+.custom-input {
+  .p-cascadeselect {
+    min-width: 28.125rem;
+
+    @media (max-width: 992px) {
+      min-width: 100%;
+    }
+  }
+}
+
+.upload-outer {
+  @media (max-width: 768px) {
+    label {
+      margin-bottom: 0.9375rem;
+      display: inherit;
+    }
+  }
+}
+
+.customopen {
+  .layout-menu {
+    width: 3.375rem !important;
+
+    // -webkit-transition: 2s;
+    // transition: 2s;
+    span {
+      display: none;
+    }
+
+    .prime-logo1 {
+      display: block;
+    }
+
+    .prime-logo {
+      display: none;
+    }
+  }
+}
+.prime-logo1 {
+  display: none;
+}
+
+.form-deatail {
+  .custom-password-input {
+    input[type="password"] {
+      width: 100%;
+    }
+    width: 100%;
+  }
+}
+
+.p-button {
+  background: $primary;
+  border: 1px solid $primary;
+
+  &:active {
+    background-color: $hovercolor !important;
+    border: 0.0625rem solid $hovercolor !important;
+  }
+
+  &:hover {
+    background-color: $hovercolor !important;
+    border: 0.0625rem solid $hovercolor !important;
+  }
+}
+
+.edit-outer {
+  .p-button {
+    width: 100px !important;
+  }
+}
+
+.formgrid {
+  .p-float-label {
+    textarea {
+      border-color: $gray-500 !important;
+      max-width: 28.125rem;
+      border-radius: 0.3125rem;
+      width: 100%;
+      height: 150px;
+      padding: 0.75rem;
+      font-size: $heading5;
+      font-weight: $fw-400;
+      font-family: "Roboto", sans-serif;
+    }
+  }
+}
+
+.p-tabview-nav {
+  display: none;
+}
+
+.p-tabview {
+  .p-tabview-panels {
+    padding: 0;
+  }
+}
+
+.custom-tabs {
+  .p-button {
+    background: transparent !important;
+    border: none !important;
+    color: $gray-600 !important;
+    outline: none;
+    padding: 0 20px 0px 20px;
+
+    &:focus-visible {
+      border: none !important;
+      outline: 0px !important;
+      box-shadow: 0px 0px 0px !important;
+    }
+
+    &:focus {
+      border: none !important;
+      outline: 0px !important;
+      box-shadow: 0px 0px 0px !important;
+    }
+  }
+
+  img {
+    color: $warning;
+    margin-right: 8px;
+  }
+}
+
+
+
+// .img-truck{
+//   width: 300px;
+//   @media (max-width: $xxl) {
+//     width: 200px;
+//   }
+//   }
+.custom-logo {
+  @media (max-width: $xxl) {
+    img {
+      width: 80px;
+    }
+  }
+
+}
+
+.upload-btn {
+  width: 100%;
+
+  background-color: $gray-200 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  border-radius: 5px;
+  border: 0.0625rem solid $btnborder;
+  border-style: dashed;
+  border-width: 2px;
+  margin-top: 24px;
+
+  .p-button {
+    &:active {
+      background-color: transparent !important;
+      border: 0.0625rem solid transparent !important;
+    }
+
+    &:hover {
+      background-color: transparent !important;
+      border: 0.0625rem solid transparent !important;
+    }
+  }
+  
+
+  .p-fileupload-choose {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-button-label.ng-star-inserted {
+    border: 0.0625rem solid $gray-600;
+    width: 100%;
+    margin: 0.625rem auto 0rem;
+    padding: 0.625rem 1.25rem;
+    color: $gray-600;
+    border-radius: 0.5rem;
+    height: auto;
+  }
+
+  .p-element.p-icon-wrapper.ng-star-inserted {
+    background-color: $iconwraper;
+    margin-bottom: 30px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3.125rem;
+    padding-left: 0.625rem;
+  }
+}
+
+.right-input input {
+  max-width: 6.25rem;
+}
+
+.p-element {
+  // z-index: 9;
+
+  &.img-truck {
+    position: absolute;
+    bottom: 0%;
+    left: -20px;
+
+    img {
+      width: 50%;
+    }
+
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+
+}
+
+.breadcrumbs {
+  margin: 24px 0px;
+
+  .active-dashboard {
+    a {
+      color: $primary;
+      font-size: $heading5;
+      font-weight: $fw-500;
+      font-size: 16px;
+    }
+  }
+
+  .bcream-devider {
+    span {
+      color: $gray-100;
+    }
+  }
+
+  .back-link {
+    a {
+      color: $primary;
+      font-size: $heading5;
+      font-weight: $fw-400;
+    }
+  }
+
+  .current-link {
+    span {
+      color: $gray-100;
+      font-size: $heading5;
+      font-weight: $fw-400;
+    }
+  }
+}
+
+.l-gray {
+  color: $gray-800 !important;
+  font-weight: $fw-400 !important;
+}
+
+.slots-img {
+
+  padding: 0px 20px;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 320px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+}
+
+.p-dialog .p-dialog-header {
+  display: none !important;
+}
+
+.parking-preview {
+  .p-button.p-component {
+    background-color: transparent !important;
+    border: 1px solid $previewbtn !important;
+    color: $previewbtn !important;
+    height: 44px;
+    width: 96px;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0rem;
+}
+
+.parking-plan {
+  margin-top: 1.25rem;
+
+  img {
+    width: 100%;
+    height: 5.375rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+}
+
+.upload-outer {
+  margin-bottom: 30px;
+
+  .add-image {
+    position: relative;
+
+    .img-overlap {
+      background-image: url(/assets/images/upload-img.png);
+      width: 100%;
+      min-height: 10.125rem;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      margin-top: 1.6875rem;
+      position: absolute;
+      top: 0px;
+
+      @media (max-width: 768px) {
+        margin-top: 0rem;
+      }
+
+      ul {
+        height: 100%;
+
+        li {
+          margin: 0px 10px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.p-button-label {
+  font-weight: 500 !important;
+}
+
+.p-element.tabs-active .p-button {
+  color: $primary !important;
+}
+
+.date-input {
+
+  .p-button {
+    background-color: transparent !important;
+    border: 1px solid $gray-500;
+    border-left: transparent !important;
+  }
+
+  .form-deatail input {
+
+    border-color: transparent !important;
+
+  }
+
+  .p-inputtext {
+    border-right: transparent !important;
+
+  }
+.p-icon {
+    color: $gray-500;
+    width: 25px;
+    height: 20px;
+  }              
+}
+
+.last-icon .pi.pi-eye {
+  margin-right: 20px;
+  color: $gray-800;
+}
+
+.common-icon .pi.pi-eye {
+  margin: 0px 10px;
+}
+
+.email-outer {
+
+  input {
+    min-height: 56px;
+  }
+}
+
+.p-inputtext {
+  padding: 16px !important;
+
+}
+
+.parking-lot-outer-wraper {
+
+  background: $gray-200;
+
+  border-radius: 30px;
+
+  margin-top: 18px;
+
+  margin-bottom: 20px;
+
+  .p-ripple {
+
+    padding: 10px 16px 10px 16px;
+
+  }
+
+  .p-button-label {
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    color: $dark;
+
+  }
+
+  .active-p-button {
+
+    background: $primary !important;
+
+    border-radius: 20px;
+    padding-top: 13px;
+    /* Adjust the padding as needed */
+    margin: 0;
+
+    .p-button-label {
+
+      color: $light;
+
+      font-size: 10px;
+    }
+
+  }
+
+}
+
+.p-dialog .p-dialog-content:last-of-type {
+  border-radius: 6px !important;
+  padding-bottom: 0;
+}
+
+.validation-error {
+  color: $danger;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.pre-img img {
+  width: 100%;
+  height: 177px;
+  border-radius: 5px;
+}
+
+.p-button:focus {
+  box-shadow: 0px 0px 0px transparent !important;
+}
+
+.p-img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.popup-overright {
+  position: relative;
+
+  .popup-loder {
+    height: 320px;
+    border: 1px solid $gray-500;
+    // background-color: #f2f2f2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+.loader {
+  border: 5px solid $loadercolor;
+  border-radius: 50%;
+  border-top: 5px solid $primary;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.no-record {
+  text-align: center !important;
+  text-transform: capitalize;
+  background-color: $light !important;
+  text-align: center;
+  width: 100%;
+  height: 45vh !important;
+
+}
+
+.sno {
+  width: 100px;
+}
+   
+.form-state {
+  .formgrid {
+    margin-bottom: 24px;
+
+    label {
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      color: $gray-700;
+    }
+
+    .p-dropdown {
+      width: 95% !important;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+.p-multiselect.p-component {
+  width: 300px !important;
+  color: $gray-600 !important;
+  margin-top: 10px;
+
+  input {
+
+    min-height: 22px !important;
+    padding: 10px !important;
+  }
+}
+
+.load-btn {
+  .p-button {
+    cursor: unset !important;
+  }
+
+}
+
+.name-outer {
+  ul {
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 15px 0px 24px;
+    width: calc(100% + 7px);
+  }
+}
+
+.custom-action {
+  width: 130px;
+}
+
+.custom-hazar {
+  margin-right: 0px !important;
+}
+
+
+
+
+//////////////
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: $gray-400;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: $primary;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border: solid $light;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.main-upload {
+  position: relative;
+
+  p {
+    position: absolute;
+    top: 42%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+
+  }
+}
+
+.dropdown-width {
+  .p-dropdown-item {
+    white-space: inherit !important;
+
+  }
+}
+
+// .p-dropdown-item {
+//   cursor: pointer;
+//   font-weight: 400;
+//   white-space: inherit;
+//   position: relative;
+//   overflow: hidden;
+// }
+
+.total-booking-wraper {
+
+  .p-datatable-wrapper {
+
+    .p-datatable-table {
+      tr {
+
+        td {
+          img {
+
+            margin-right: 33px;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: $scrollcolor $light;
+}
+
+/* Other browsers */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+// *::-webkit-scrollbar-track {
+//   background: $light;
+// }
+
+*::-webkit-scrollbar-thumb {
+  background-color: $scrollcolor;
+  border-radius: 10px;
+  // border: 5px solid $light;
+}
+
+.img-overlap {
+  li {
+    img {
+      cursor: pointer;
+    }
+  }
+}
+
+.name-outer {
+
+
+  .p-element {
+
+    width: 100%;
+
+    .p-image {
+      width: 100%;
+    }
+  }
+}
+
+.ng-trigger-animation {
+  .p-image-preview {
+
+    width: 100% !important;
+    height: 80vh !important;
+  }
+
+
+}
+
+.parking-plan {
+  .p-image-preview-indicator {
+    opacity: 0 !important;
+  }
+
+  .p-image-action.p-link:hover {
+
+    background-color: transparent !important;
+  }
+}
+
+//  
+
+.policy-outer {
+  overflow-y: scroll;
+  height: 100vh;
+
+  .policy-wraper {
+    background: $light;
+    border-radius: 0.625rem;
+    padding: 7px 15px;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  .logo-inner {
+    margin-top: 14px;
+    border-bottom: 1px solid $gray-400;
+    padding-bottom: 18px;
+    margin-bottom: 33px;
+
+    img {
+      width: 151px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 25px;
+
+    margin-top: -10px;
+  }
+}
+
+.dropdown-width {
+  .p-dropdown-label {
+    display: inline-block;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+}
+
+.filter-table {
+  .p-datatable-wrapper {
+    border-radius: 18px;
+  }
+}
+
+.driver-name {
+  width: 170px;
+
+}
+
+.ng-trigger.ng-trigger-overlayAnimation.p-datepicker.p-component.ng-star-inserted {
+  top: -227.266px !important;
+}
+
+.ng-trigger.ng-trigger-overlayAnimation.p-datepicker.p-component.p-datepicker-timeonly.ng-star-inserted {
+  top: 60px !important;
+}
+.p-datepicker table td {
+  padding: 0px !important;
+
+}
+.p-datepicker table td > span {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 14px !important;
+}
+// .p-inputtext:enabled:focus {
+//   box-shadow: 0 0 0 0 transparent;
+//   border-color: transparent;
+// }   
+.blank-img {
+
+  p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 320px;
+  }
+}
+.custom-preimg{
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    background-position: 100%;
+    background-size: cover;
+}
+  .p-dialog-content {
+    padding: 20px;
+}
+}
+.upload-preimg {
+  img {
+    width: 100% !important;
+    background-size: cover;
+    background-position: 100%;
+    height: 250px;
+  
+  }
+.p-image-preview-container {
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+  }
+}
+.spacing-dashboard{
+  .filter-table {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,184 @@
+@import "../../../../assets/scss/variable";
+
+.parking-preview {
+    background: $light;
+    border-radius: 0.625rem;
+    margin-bottom: 26px;
+
+    .form-deatail {
+        h3 {
+            margin-top: 0;
+            font-size: $heading2;
+            font-style: normal;
+            font-weight: $fw-500;
+            margin-bottom: 1.625rem;
+        }
+    }
+
+    .table-top {
+        padding: 24px;
+        border-bottom: 0.0625rem solid $iconwraper;
+    }
+
+    .middle-line {
+        position: relative;
+        padding: 0.625rem 24px;
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: 99%;
+            border: 0.0625rem solid $iconwraper;
+            left: 50%;
+            text-align: center;
+            margin: 0 auto;
+            top: 0.4375rem;
+            opacity: 0.3;
+
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
+    }
+
+    .name-outer {
+        label {
+            font-size: $heading6;
+            font-weight: $fw-400;
+            color: $gray-600;
+        }
+
+        h4 {
+            font-size: $heading5;
+            font-weight: $fw-500;
+            margin-bottom: 0;
+            color: $gray-900;
+            margin-top: 24px;
+        }
+
+        p {
+
+            font-size: $heading6;
+            font-weight: $fw-400;
+            color: $gray-600;
+            margin: 16px 0px 24px;
+        }
+    }
+
+    .fare-outer {
+        margin-bottom: 1.25rem;
+
+        h5 {
+            color: $gray-600;
+            font-size: $heading6;
+            font-weight: $fw-400;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+
+            list-style: none;
+            padding-left: 0rem;
+
+            li {
+                display: inline-block;
+                font-size: $heading6;
+                font-weight: $fw-400;
+                color: $gray-600;
+
+            }
+
+            .custom-divder {
+                padding: 0rem 1.25rem;
+            }
+        }
+    }
+
+    .custom-slot {
+        li {
+            display: inline-block;
+            min-width: 2.9375rem;
+            min-height: 2.25rem;
+            border-radius: 0.5625rem;
+            background-color: #EEEEEE;
+            margin: 0rem 0.3125rem 0.3125rem 0rem;
+            text-align: center;
+            align-items: center;
+            padding: 0.625rem;
+            font-size: $heading6;
+            font-weight: $fw-400;
+
+        }
+    }
+
+    .view-right {
+        padding-left: 0.9375rem;
+    }
+}
+
+.parking-preview {
+    h3 {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.blank-img {
+    p {
+        height: 86px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-style: dashed;
+        color: #000;
+    }
+}
+
+.name-outer {
+    h5 {
+        color: $gray-600;
+    }
+}
+
+.custom-fares {
+    h5 {
+        margin: 16px 0px 0px !important;
+    }
+
+    ul {
+        margin: 8px 0px 24px !important;
+    }
+
+    h4 {
+        margin-bottom: 10px !important;
+    }
+}
+
+.name-outer {
+    h5 {
+        color: #929597 !important;
+        margin: 12px 0px;
+    }
+}
+
+.fare-charge {
+
+    margin-bottom: 0px !important;
+
+    ul {
+        margin-bottom: 10px !important;
+    }
+
+    h5 {
+        margin-bottom: 0px !important;
+    }
+}
+
+.extended-time {
+    h5 {
+        margin-top: 0px;
+    }
+}

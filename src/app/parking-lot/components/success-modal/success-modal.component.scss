@@ -1,0 +1,37 @@
+@import "../../../../assets/scss/variable";
+
+.modal-outer-wraper {
+    text-align: center;
+
+    .modal-inner-wraper {
+        img{
+            width: 80px;
+        }
+        h3 {
+            font-size: $heading2;
+            font-weight: $fw-500;
+            color: $primary;
+            padding-top: 20px;
+            padding-bottom: 12px;
+        }
+
+        p {
+            color: $dark;
+            font-size: $heading5;
+            font-weight: $fw-500;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+::ng-deep .p-button {
+    font-size: $heading5;
+    font-weight: $fw-500;
+    min-height: 3.375rem;
+    width: 100%;
+}
+
+::ng-deep .p-button.p-button-link {
+    font-size: 16px;
+    padding-right: 0;
+}

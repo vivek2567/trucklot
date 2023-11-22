@@ -1,0 +1,175 @@
+@import "../../../../assets/scss/variable";
+
+.layout-menu {
+  width: 19.375rem;
+  background: $primary;
+  height: 100vh;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  border-radius: 0 2.5rem 2.5rem 0;
+
+  overflow: auto;
+  position: relative;
+
+  @media (max-width: $xxl) {
+    width: 15.375rem;
+  }
+
+  .no-hover {
+    position: sticky !important;
+    top: 0;
+    background-color: #1D4ED8;
+    z-index: 9;
+}
+  img {
+    height: 1.25rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem;
+    display: flex;
+    align-items: center;
+    color: $light;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    min-height: 3.875rem;
+    position: relative;
+
+    i {
+      font-size: 24px;
+    }
+
+    span {
+      font-size: $heading4;
+      font-weight: $fw-500;
+      padding-left: 1.125rem;
+    }
+
+    // &:hover {
+    //   background: $bglinear;
+    // }
+    &:hover{
+      background: $bglinear;
+
+
+    }
+    &.active {
+      background: $bglinear;
+
+      &:after {
+        position: absolute;
+        content: "";
+        width: 0.25rem;
+        height: 2.5rem;
+        background-color: $warning;
+        top: 0.625rem;
+        left: 0;
+        border-radius: 0rem 0.5rem 0.625rem 0rem;
+      }
+    }
+
+    &:first-child {
+      &:hover {
+
+        background: transparent;
+        cursor: inherit;
+      }
+    }
+  }
+
+  &.menu-close {
+    left: -19.375rem;
+    position: relative;
+    width: 0;
+  }
+
+  .prime-logo {
+    height: 30px !important;
+  }
+}
+
+
+.sidebar {
+  position: relative;
+  background-color: $primary;
+  // height: 100%;
+  border-radius: 0 2.5rem 2.5rem 0;
+
+
+
+
+
+
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $light;
+    right: 0;
+    top: 0;
+    border-radius: 0rem 0rem 0rem 1.875rem;
+    z-index: -1;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 2.5rem;
+    background-color: $bluelight-400;
+    right: 0;
+    bottom: 0;
+    border-radius: 0rem 0rem 0rem 1.875rem;
+    z-index: -1;
+  }
+}
+
+// .ng-trigger-slideInOut{
+
+//     span{
+// display: none;
+//     }
+// }
+// .sidebar{
+//   -ms-overflow-style: none;  /* IE and Edge */
+//   scrollbar-width: none;  /* Firefox */
+//   overflow-y: scroll;
+// }
+//  ::-webkit-scrollbar {
+//   display: none;
+//   width: 0;
+//   height: 0;
+
+// }
+.layout-menu::-webkit-scrollbar {
+  width: 0px;
+}
+
+// /* Track */
+// .layout-menu::-webkit-scrollbar-track {
+//   // box-shadow: inset 0 0 5px grey; 
+//   border-radius: 10px;
+// }
+
+// /* Handle */
+// .layout-menu::-webkit-scrollbar-thumb {
+//   background: #ccc; 
+//   border-radius: 10px;
+//   width: 2px;
+
+// }
+
+// /* Handle on hover */
+// .layout-menu::-webkit-scrollbar-thumb:hover {
+//   background: #f2f2f2; 
+//   width: 2px;
+// }
+.grey-out {
+  opacity: 0.5;
+  cursor: inherit !important;
+}

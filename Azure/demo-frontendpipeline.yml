@@ -1,0 +1,56 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+pr: none
+
+stages:
+- stage: BUILD 
+  displayName: BUILD 
+  jobs:  
+  - job: Build
+    displayName: Build
+    steps:
+    
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.x'
+      displayName: 'Use Node.js'
+    
+    - script: |
+        npm install
+        npm run build
+      displayName: 'Build React app'
+    
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      displayName: 'Copy build to artifact staging directory'
+      
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'TL'
+        publishLocation: 'Container'
+
+
+- stage: DEPLOY 
+  displayName: DEPLOY 
+  jobs:  
+  - job: Deploy
+    displayName: Deploy
+    steps:
+    
+    - task: AzureStaticWebApp@0
+      inputs:
+        azure_static_web_apps_api_token: $(WEB_API_TOKEN)
+        app_location: "/" 
+        api_location: "" 
+        output_location: "dist/truck-lots-fe"
+      env: 
+        production : $(production)
+        endpoint : $(endpoint)
+        

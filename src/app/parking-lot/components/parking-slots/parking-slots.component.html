@@ -1,0 +1,149 @@
+<app-loader></app-loader>
+<div class="parking-slot">
+
+  <div class="card breadcrumbs">
+    <div class="flex justify-content-between flex-wrap card-container purple-container mb-3">
+
+      <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-0">
+        <li class="active-dashboard">
+          <a [routerLink]="['/manager/dashboard']" class=" no-underline line-height-3 cursor-pointer ">Dashboard</a>
+        </li>
+        <li class="px-2 bcream-devider">
+          <span>|</span>
+        </li>
+        <li class="back-link">
+          <a [routerLink]="['/manager/parking']" class=" no-underline line-height-3 cursor-pointer ">Parking List</a>
+        </li>
+        <li class="px-2 bcream-devider">
+          <span>|</span>
+        </li>
+        <li class="current-link">
+          <span class=" line-height-3">Create Parking</span>
+        </li>
+      </ul>
+      <!-- <p-button label="Create Parking" styleClass="p-button-outlined mb-0"></p-button> -->
+    </div>
+  </div>
+  <p-toast></p-toast>
+  <div [formGroup]="parkingSlotForm" class="grid">
+    <div class="col-12 md:col-6">
+      <div class="box-card card">
+        <div class="top-card">
+          <h3>Create Parking</h3>
+          <label>Truck Parking lot details</label>
+        </div>
+        <div class="row-divider flex align-items-center justify-content-between totale-slot">
+          <div class="left-lable">
+            Total Number of Slots
+          </div>
+          <div class="right-input">
+
+            <p-inputNumber inputId="locale-user" placeholder="200" formControlName="totalSlots"></p-inputNumber>
+            <div
+              *ngIf="parkingSlotForm.get('totalSlots')?.hasError('required')  && (parkingSlotForm.get('totalSlots')?.dirty || parkingSlotForm.get('totalSlots')?.touched)">
+              <div class="validation-error"> This Field is required*</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row-divider" formArrayName="truckTypeArray"
+          *ngFor="let truck of truckTypeArray()?.controls; let i=index">
+          <div [formGroupName]="i">
+            <div class="left-lable">
+
+              Truck Type
+
+            </div>
+
+            <div class="right-input">
+
+              <label>{{truck.get('truckName')!.value }}</label>
+
+            </div>
+
+            <div class="flex no-slot align-items-center justify-content-between">
+
+              <div class="left-lable">
+
+                Number of Slots
+
+              </div>
+
+              <div class="right-input">
+
+                <p-inputNumber (onInput)="soltChange(truck)" placeholder="200" inputId="locale-user"
+                  formControlName="totalSlots"></p-inputNumber>
+
+              </div>
+
+            </div>
+
+            <div class="badge-box" formArrayName="parkingSlots">
+
+              <h4>Slots Range</h4>
+              <div class="slout-outer">
+                <span *ngFor="let slot of parkingSlotArray(i)?.controls; let slotIndex=index">
+                  <span [formGroupName]="slotIndex">
+                    <input pInputText styleClass="mr-2 mb-2" id="username{{slotIndex}}" formControlName="slotName" />
+                  </span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-12 md:col-6">
+      <div class="box-card card">
+        <div class="upload-plan">
+          <h3>Upload Plan</h3>
+          <p>Parking plan maximum file size - 25 MB
+          </p>
+          <div class="main-upload">
+            <div *ngIf="upldBtn" class="upload-btn" (drop)="onDrop($event,fileUpload)" (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)">
+              <p-fileUpload mode="basic" #fileUpload url="https://www.primefaces.org/cdn/api/upload.php"
+                chooseLabel="Browse Computer" class="custom-ptext" (onSelect)="onUpload($event.files,fileUpload)">
+                <div class="img-overlap" [style.background-image]="'url(' + imageLink + ')'"></div>
+
+
+              </p-fileUpload>
+              <p>Drag and drop your file</p>
+            </div>
+
+          </div>
+
+          <div *ngIf="isProfileImgError">
+            <div class="validation-error">File size exceeds the 25MB limit.</div>
+          </div>
+
+          <div class="pre-img upload-preimg" style="position: relative;">
+
+            <p-image [src]="imageLink" *ngIf="imageLink" alt="preview-image" class="preview-image"
+              [preview]="true"></p-image>
+
+            <span *ngIf="delIcon"><i class="pi pi-times" (click)="deleteDocument()"></i></span>
+          </div>
+          <!-- <a [href]="pdfUrl" target="_blank" *ngIf="pdfUrl">
+
+            <span>View Document</span>
+
+          </a> -->
+
+          <div class="field col-12 md:col-3 lg:col-3">
+            <div class="formgrid grid next-btn save-btn">
+              <div class="field col flex align-items-center ">
+                <p-button label="Save" class="" (click)="createParking()"></p-button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

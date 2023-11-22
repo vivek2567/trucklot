@@ -1,0 +1,239 @@
+<app-loader></app-loader>
+<p-toast></p-toast>
+<div class="main-body">
+  <div class="landing-container">
+    <nav class="lotsNav ">
+      <a href="javascript:void(0)">
+        <img src="assets/images/logo.svg" alt="logo" />
+      </a>
+      <ul class="ctaListing">
+        <li>
+          <button (click)="goLoginScreen()" class="login ctaBtn">Login as Manager</button>
+        </li>
+        <li>
+          <button class="contact ctaBtn">Contact Us</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="circleTop">
+    <img src="assets/images/circleTop.svg" alt="circle" />
+  </div>
+
+  <section class="heroSection landing-container">
+    <div class="left">
+      <h1>
+        <span class="highlight">Most Accessible</span> platform for truck
+        drivers
+      </h1>
+      <p class="subHeading">Easy and better solution for truck driver</p>
+      <p class="description">
+        Truck driver platform offers where driver can park their trucks at
+        desirable parking slot also have ability to do future book parking
+        via directly selecting slot from the layout.
+      </p>
+      <div class="features">
+        <h3>Key Features</h3>
+        <ul class="listing">
+          <li class="item">
+            <img src="assets/images/tick.svg" alt="icon" />
+            <small>Authentic parking layout</small>
+          </li>
+          <li class="item">
+            <img src="assets/images/tick.svg" alt="icon" />
+            <small>Ability to extend time</small>
+          </li>
+          <li class="item">
+            <img src="assets/images/tick.svg" alt="icon" />
+            <small>Hazardous load parking availability</small>
+          </li>
+          <li class="item">
+            <img src="assets/images/tick.svg" alt="icon" />
+            <small>Facilitate preferred reservation </small>
+          </li>
+        </ul>
+      </div>
+      <div class="gradientLine"></div>
+      <div class="scan">
+        <h6>SCAN</h6>
+        <p class="description">To get app on your device</p>
+        <div class="scanner">
+          <div class="scannerPlatform">
+            <img src="assets/images/barCode.svg" alt="Android Barcode" />
+            <div class="name">Android</div>
+          </div>
+          <div class="scannerPlatform">
+            <img src="assets/images/barCode.svg" alt="Android Barcode" />
+            <div class="name">IOS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div>
+        <img src="assets/images/HeroImg.png" alt="Hero Image" />
+      </div>
+    </div>
+  </section>
+  <section class="talkStrip">
+    <div class="landing-container">
+      <div class="title">
+        Get your parking place well organize on digital platform
+      </div>
+      <button class="talkBtn">Lets talk</button>
+    </div>
+
+  </section>
+  <section class="management ">
+    <div class="circleMiddle">
+      <img src="assets/images/circleMiddle.svg" alt="circle" />
+    </div>
+    <div class="landing-container">
+      <h2><strong>Management system</strong> for parking owner’s</h2>
+      <div class="heroSection">
+        <div class="right">
+          <div>
+            <img src="assets/images/heroImg2.png" alt="Hero Image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="left">
+          <p class="subHeading">Management system for parking owner’s</p>
+          <p class="description">
+            Have the ability to control their parking spaces, create their own
+            parking arrangements according to the architecture, and access
+            analytical data for future marketing planning.
+          </p>
+          <div class="features">
+            <h3>Key Features</h3>
+            <ul class="listing">
+              <li class="item">
+                <img src="assets/images/tick.svg" alt="icon" />
+                <small>Manager Support</small>
+              </li>
+              <li class="item">
+                <img src="assets/images/tick.svg" alt="icon" />
+                <small>Ability to extend time</small>
+              </li>
+              <li class="item">
+                <img src="assets/images/tick.svg" alt="icon" />
+                <small>Hazardous load Indication</small>
+              </li>
+              <li class="item">
+                <img src="assets/images/tick.svg" alt="icon" />
+                <small>Access to full Reservation History</small>
+              </li>
+            </ul>
+          </div>
+          <div class="gradientLine"></div>
+          <button class="getStartedBtn">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="lotsFooter">
+
+    <div class="waveOne">
+      <img src="assets/images/waveOne.svg" alt="wave" />
+    </div>
+    <div class="waveTwo">
+      <img src="assets/images/waveTwo.svg" alt="wave" />
+    </div>
+
+    <h4>Have any query? feel free to discuss with us</h4>
+    <form [formGroup]="landingForm" action="" class="form">
+      <div class="form-group">
+        <div class="input-field">
+          <label for=""> Name </label>
+          <input type="text" formControlName="name" />
+    
+        </div>
+        <div class="input-field">
+          <label for="">Business Name </label>
+          <input type="text" formControlName="businessName" />
+        </div>
+      </div>    
+      <div
+      *ngIf="landingForm.get('name')?.hasError('required')  && (landingForm.get('name')?.dirty || landingForm.get('name')?.touched)">
+      <div class="validation-error"> This Field is required*</div>
+    </div>
+      <div class="form-group">
+        <div class="input-field">
+          <label for=""> Email </label>
+          <input type="Email" formControlName="email" />
+       
+          <div
+            *ngIf="landingForm.get('email')?.hasError('pattern')  && (landingForm.get('email')?.dirty || landingForm.get('email')?.touched)">
+            <div class="validation-error"> Enter a Valid Email*</div>
+          </div>
+        </div>
+        <div class="input-field">
+          <label for="">Phone Number </label>
+          <input type="text" formControlName="phoneNumber" />
+          <div
+            *ngIf="landingForm.get('phoneNumber')?.hasError('pattern')  && (landingForm.get('phoneNumber')?.dirty || landingForm.get('phoneNumber')?.touched)">
+            <div class="validation-error"> Enter a Valid Number</div>
+          </div>
+        </div>
+      </div>
+      <div
+      *ngIf="landingForm.get('email')?.hasError('required')  && (landingForm.get('email')?.dirty || landingForm.get('email')?.touched)">
+      <div class="validation-error"> This Field is required*</div>
+    </div>
+      <div class="form-group">
+        <div class="input-field">
+          <label for=""> Message </label>
+          <textarea placeholder="Type your message here" cols="10" rows="5" formControlName="message"></textarea>
+        </div>
+      </div>
+      <div class="submitBtn">
+        <button (click)="createEnquiry()">Submit</button>
+      </div>
+    </form>
+  </footer>
+  <section class="footerBottom">
+    <div class="landing-container">
+      <div class="ctas"> 
+        <ul>
+          <li class="links">
+            <a href="mailto: abc@example.com">Help - infor.trucklots@gmail.com</a>
+          </li>
+          <li class="links">
+            <a href="tel:+6494461709">Customer Care - 895-569-599</a>
+          </li>
+          <li class="links">
+            <address>
+              Address - 335 Peninsula Pointe Canton, GA, US 30114
+            </address>
+          </li>
+        </ul>
+      </div>
+      <div class="socialLinks">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <img src="assets/images/twitter.svg" alt="twitter" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <img src="assets/images/facebook.svg" alt="facebook" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <img src="assets/images/linkedIn.svg" alt="likedin" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <img src="assets/images/instagram.svg" alt="instagram" />
+            </a>
+          </li>             
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+</div>

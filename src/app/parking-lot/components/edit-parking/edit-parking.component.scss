@@ -1,0 +1,138 @@
+@import "../../../../assets/scss/variable";
+.main-card {
+  background: $light;
+
+  border-radius: 0.625rem;
+
+  margin-bottom: 0.9375rem;
+  padding: 24px;
+
+  .group-col {
+    max-width: 28.125rem;
+    @media (max-width: 768px) {
+  
+      max-width: 100%;
+
+      }           
+    input {
+      max-width: 8.75rem;
+      @media (max-width: 992px) {
+  
+        max-width: 100%;   
+
+        }
+    }
+    label {
+      font-size: $heading6;
+      font-style: normal;
+      font-weight: $fw-400;
+      color: $gray-600;
+    }
+  }
+
+  .p-checkbox-row {
+    label {
+      font-size: $heading6;
+      font-style: normal;
+      font-weight: $fw-400;
+      color: $gray-600;
+      margin-left: 0.625rem;
+      margin-bottom: 0;
+      @media (max-width: 768px) {
+  
+    margin-left: 0px;
+  margin-top: 10px;;
+        } 
+    }
+  }
+
+  .form-deatail {
+    h3 {
+      margin-top: 0;
+      font-size: $heading2;
+      font-style: normal;
+      font-weight: $fw-500;
+      margin-bottom: 1.625rem;
+    }
+  }
+
+  .p-ripple {
+    height: 10.125rem;
+    width: 20.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bluelight-400;
+    border: 0.0625rem solid $primary;
+    border-style: dashed;
+    color: $gray-900;
+    font-size: $heading6;
+    font-weight: $fw-400;
+  }
+}
+ 
+.parking-location{
+
+    .p-button-icon-only {
+        background-color: transparent !important;
+        border: 0.0625rem solid $gray-500;
+        border-left: 0px;
+        color: $gray-500; 
+    }
+
+}
+.upload-outer{
+  margin-bottom: 1.875rem;
+}
+.under-maintance{
+  h5 {
+    color: $info;
+    font-size: $heading5;
+    font-weight: $fw-500;
+    margin-bottom: 0px;
+  }
+  label {
+    font-weight: $fw-400;
+    color: $gray-600 !important;
+    font-size: $heading5;
+}
+p {
+  color: $gray-600;
+  font-size: $heading5;
+  font-weight: $fw-400;
+  margin-top: 30px;
+}
+}     
+.startdate {
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color:$dark;
+    margin-bottom: 12px;
+  } 
+  label {
+    color: #929598;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 7px;
+    display: inline-block;
+}       
+}
+.custom-width {
+  max-width: 29.125rem;
+  @media (max-width: 768px) {
+max-width: 100%;
+        }
+}
+
+.formgrid {
+  margin-bottom: 24px;
+
+  label {
+    margin-bottom: 15px;
+  }
+}
+
+.field {
+  margin-bottom: 0;
+}

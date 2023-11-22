@@ -1,0 +1,279 @@
+<app-loader></app-loader>
+
+<div class="card breadcrumbs">
+    <div class="flex justify-content-between flex-wrap card-container purple-container">
+
+        <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-0">
+
+            <li class="current-link">
+                <span class=" line-height-3">Dashboard</span>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="dashboard-outer-wraper">
+    <div class="table-card custom-tabs">
+
+        <div class="spacing-dashboard-map pb-0  flex justify-content-between align-items-center">
+            <p class="sub-text">Choose State</p>
+            <!-- <div class="flex align-items-center justify-content-center mb-0">
+
+
+
+                <span class="all-tab-active">All</span>
+
+
+
+            </div> -->
+        </div>
+        <div class="grid table-detail-border spacing-outer-wrap mt-3 ">
+            <div class="col-12 lg:col-4 border-right px-0">
+                <div class="mt-4 ">
+                    <h3 class="heading-inner mt-0 mb-0">
+                        Could you please specify which State and parking place you would like to view?
+                    </h3>
+                    <div class="form-state dropdown-width">
+                        <div class="flex flex-column formgrid">
+                            <label for="float-input">Select State</label>
+                            <p-dropdown [options]="response" [(ngModel)]="selectedState"
+                                (ngModelChange)="getParkingLotByStatesName($event)"
+                                placeholder="Select State"></p-dropdown>
+                        </div>
+
+                        <div class="flex flex-column formgrid">
+                            <label for="float-input">Parking Place</label>
+                            <p-dropdown [options]="parkingLotDropdown" optionLabel="name"
+                                placeholder="Select Parking Place"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 lg:col-8 lg:p-0">
+                <div
+                    class="parking-lot-wraper flex align-items-center justify-content-between  spacing-dashboard-map pr-0">
+
+                    <h4 class="mt-0"> Map View</h4>
+
+
+                    <h3 class="state-number">No. of states: {{ stateCount }}</h3>
+
+                </div>
+
+                <img class="map-view" src="assets/images/map-view.png" />
+            </div>
+        </div>
+
+
+
+        <div class=" grid table-top total-wraper-card spacing-dashboard py-0">
+            <div class="col-12 lg:col-4 ">
+                <div class="total-booking-wraper spacing-dashboard-map">
+
+
+                    <div class="flex align-items-center justify-content-between inner-text-wrap">
+                        <div>
+                            <h4 class="main-heading-inner mt-0 ">Total Bookings</h4>
+
+                            <h3 class="my-0">{{totalBookings}}</h3>
+                        </div>
+
+
+
+                        <img class="peak-hours" src="assets/images/total-booking.svg" />
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-12 lg:col-4 ">
+                <div class="total-booking-wraper spacing-dashboard-map">
+
+                    <div class="flex align-items-center justify-content-between inner-text-wrap">
+                        <div>
+                            <h4 class="main-heading-inner mt-0 ">Total Earning</h4>
+
+                            <h3 class="my-0">{{totalEarning }}</h3>
+                        </div>
+
+
+
+                        <img class="peak-hours" src="assets/images/total-earning.svg" />
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-12 lg:col-4 ">
+                <div class="total-booking-wraper spacing-dashboard-map">
+                    <div class="flex align-items-center justify-content-between inner-text-wrap">
+                        <div>
+                            <h4 class="main-heading-inner mt-0 ">Peak hours in last 30 days</h4>
+
+                            <h3 class="my-0">{{peakHoursStartTime }} - {{peakHoursEndTime }}</h3>
+                        </div>
+
+
+
+                        <img class="peak-hours" src="assets/images/peak-hours.svg" />
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class=" grid table-top total-wraper-card pb-0">
+            <div class="col-12  xl:col-5 ">
+                <div class="total-booking-wraper spacing-dashboard-map">
+                    <div class="parking-lot-wraper flex align-items-center justify-content-between mb-0">
+
+                        <h4 class="mt-0"> Parking lot</h4>
+
+                        <div>
+                            <div class="card parking-lot-outer-wraper mt-0">
+                                <div class="parking-lot-inner-wraper">
+                                    <p-button (click)="create('DayChart')"
+                                        [ngClass]="{'p-button-text active-p-button': buttonStyles[0].active}"
+                                        styleClass="p-button-text" label="Day"></p-button>
+                                    <p-button (click)="create('WeekChart')"
+                                        [ngClass]="{'p-button-text active-p-button': buttonStyles[1].active}"
+                                        styleClass="p-button-text -p-button" label="Weekly"></p-button>
+                                    <p-button (click)="create('YearlyChart')"
+                                        [ngClass]="{'p-button-text active-p-button': buttonStyles[2].active}"
+                                        styleClass="p-button-text" label="Yearly"></p-button>
+                                </div>
+                                <p-tabView [(activeIndex)]="activeIndex">
+                                    <p-tabPanel header="Header I">
+                                        <p>
+
+                                        </p>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Header II">
+                                        <p>
+
+                                        </p>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Header III">
+                                        <p>
+
+                                        </p>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <!-- <div class="survey-overall">
+                            <h5>
+                                survey overall
+                            </h5>
+                            <ul id="ul1">
+                                <li class="occupacy">
+                                    50% Occupancy Rate
+                                </li>
+                                <li>
+                                    50% Vacant
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div>
+
+                            <!-- <img class="pie-chart-img" src="assets/images/pie-chart.png" /> -->
+
+                            <div class="chart-container">
+                                <canvas #dynamicCanvas></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="col-12 xl:col-7 ">
+                <!-- <div class="col-12 xl:col-7 " > -->
+                <div class="total-booking-wraper spacing-dashboard-map">
+                    <div class="parking-lot-wraper flex align-items-center justify-content-between ">
+                        <h4 class="my-0"> Reviews</h4>
+                        <div class="flex align-items-center rating-review">
+
+                            <i class="pi pi-star-fill" style="font-size: 1rem"></i>
+                            <p class="my-0 ml-2">{{averageRating}}</p>
+                            <!-- <p class="my-0 ml-2">{{review.rating}}</p> -->
+
+                        </div>
+                    </div>
+                    <div class="lg:flex align-items-center justify-content-between">
+                        <div class="survey-overall col-12 lg:col-6" *ngFor="let review of parkingLotsReview">
+                            <div class="flex align-items-center">
+                                <div>
+                                    <img src="assets/images/review-img.svg" />
+                                </div>
+                                <div>
+                                    <h4 class="ml-3 mt-0 mb-2">{{review.reviewBy}}</h4>
+                                    <div class="star-rating">
+                                        <ng-container *ngFor="let star of getStarArray(review.rating)">
+                                            <i class="pi pi-star-fill me-1" [ngClass]="{'filled': star}"></i>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="parking-lot-number border-parking-lot spacing-dashboard-inner pb-0 custom-after">
+                                <h3 class="mt-0">{{review.name}}</h3>
+                                <p class="mb-0">{{review.review}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacing-dashboard">
+            <div class="total-booking-wraper pb-0">
+                <div
+                    class="parking-lot-wraper lg:flex align-items-center justify-content-between spacing-dashboard pb-0 ">
+                    <div>
+                        <h4 class="xl:my-0">Parking lot fare charges</h4>
+                    </div>
+                    <div class="flex align-items-center filter-wrapper">
+                        <h2 class="mr-2">Filter by :</h2>
+                        <div class="card flex justify-content-center dropdown-width">
+                            <!-- <p-dropdown [options]="" optionLabel="name" placeholder="Parking Lot"></p-dropdown> -->
+                            <p-dropdown [options]="parkingLotDropdown" optionLabel="name" placeholder="Parking Lot"
+                                [(ngModel)]="selectedParkingLot"
+                                (onChange)="GetTruckTypesByParkingLotId()"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-table">
+                <p-table [scrollable]="true"styleClass="p-datatable-striped" [value]="parkingLotDropdownList"
+                   >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="custom-truck">Truck type</th>
+                            <th>Hourly</th>
+                            <th>Nighttime</th>
+                            <th>Weekly</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product let-i="rowIndex">
+                        <tr>
+                            <td class="turak-td"><img [src]="product.vehicleTypeImagePath" class="preview-image"> {{ product.name }}</td>
+                            <td>${{ product.fareChargesHourly }}</td>
+                            <td>${{ product.fareChargesNight }}</td>
+                            <td>${{ product.fareChargesWeekly }}</td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

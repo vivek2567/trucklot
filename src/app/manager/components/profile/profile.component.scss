@@ -1,0 +1,213 @@
+@import "../../../../assets/scss/variable";
+
+.breadcrumbs {
+  li {
+    a {
+      color: $primary;
+      font-size: $heading5;
+      font-weight: $fw-500;
+    }
+
+    span {
+      color: $gray-100;
+    }
+
+    i {
+      color: $gray-100;
+    }
+  }
+}
+
+.table-card {
+  background: $light;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  min-height: calc(100vh - 250px);
+  margin-bottom: 30px;
+
+  .table-top {
+    padding: 1.375rem 1.5rem;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: $heading2;
+    font-style: normal;
+    font-weight: $fw-500;
+    margin-bottom: 1.625rem;
+  }
+}
+
+.form-deatail {
+  label {
+    font-size: $heading5;
+    font-style: normal;
+    font-weight: $fw-500;
+    color: $gray-700;
+    margin-bottom: 15px;
+  }
+}
+
+.formgrid {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.light-bg {
+  background-color: $bluelight-300;
+  padding: 1.25rem;
+  margin-bottom: 2.1875rem;
+  border-radius: 0.9375rem;
+  position: relative;
+
+  & :after {
+    content: "";
+    background-image: url(/assets/images/profile-wave.svg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: right top;
+
+    /* opacity: 0.5; */
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  .profile-img {
+    img {
+      width: 193px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+  }
+}
+
+.bank-outer {
+  ul {
+    padding: 0;
+    max-width: 28.125rem;
+    border: 0.0625rem solid $gray-500;
+    border-radius: 0.375rem;
+    padding: 0.875rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    li {
+      list-style: none;
+
+      .right-text {
+        margin-left: 1.75rem;
+
+        h4 {
+          margin: 0rem;
+          font-size: 14px;
+          font-weight: $fw-400;
+          color: $dark;
+        }
+
+        p {
+          margin: 0.3125rem 0rem 0rem;
+          font-size: $paragraph1;
+          font-weight: $fw-400;
+          color: $gray-100;
+        }
+      }
+    }
+  }
+}
+
+.edit-outer {
+  height: 100%;
+
+  .p-button {
+    min-width: 5.125rem !important;
+  }
+}
+
+.profile-rightbtn {
+  position: relative;
+  height: 100%;
+
+  .edit-outer {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 0;
+    height: auto;
+
+    @media (max-width: 768px) {
+      position: unset;
+    }
+  }
+}
+
+.validation-error {
+  color: $danger;
+}
+
+.custom-upload-button {
+  background-color: $primary;
+  color: $light;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.preview-image {
+  width: 160px;
+  border-radius: 50%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.uploadImageOuter {
+  .editImage {
+    position: absolute;
+    background-color: $primary;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 30px;
+    left: 140px;
+    bottom: 45px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+    #imageInput {
+      z-index: 99;
+      cursor: pointer;
+      position: absolute;
+    }
+  }
+}
+
+.password-link {
+  border: 1px solid $primary;
+  border-radius: 5px;
+  margin-top: 35px;
+  height: 56px;
+  max-width: 28.125rem;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+    color: $primary;
+    text-decoration: none;
+    height: 100%;
+
+    p {
+      margin: 0px;
+      color: $primary;
+      font-size: 16px;
+      font-weight: $fw-400;
+    }
+  }
+
+}

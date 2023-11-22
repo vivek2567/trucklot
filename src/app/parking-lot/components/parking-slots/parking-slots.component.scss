@@ -1,0 +1,198 @@
+@import "../../../../assets/scss/variable";
+
+.box-card {
+  border-radius: 11px;
+  background: $light;
+  height: 100%;
+  position: relative;
+
+  .top-card {
+    padding: 0.625rem 24px 1.5625rem;
+
+    h3 {
+      font-size: $heading2;
+      font-weight: $fw-500;
+      color: $gray-800;
+      margin-bottom: 11px;
+
+      @media (max-width: 1367px) {
+        font-size: $heading4;
+      }
+    }
+
+    label {
+      font-size: $heading5;
+      font-weight: $fw-500;
+      color: $gray-600;
+
+      @media (max-width: 1367px) {
+        font-size: $heading6;
+
+
+      }
+    }
+
+  }
+
+  .row-divider {
+
+    border-top: 1px solid $gray-200;
+
+    padding: 20px 24px;
+
+  }
+
+  .left-lable {
+    font-size: $heading5;
+    font-weight: $fw-500;
+    color: $gray-800;
+
+    // @media (max-width: 1367px) {
+    //   font-size: $heading6;
+
+
+    // }
+  }
+
+  .badge-box {
+    background-color: $gray-200;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 30px 0px;
+  }
+
+  .right-input {
+    label {
+      font-size: $heading5;
+      font-weight: $fw-500;
+      color: $gray-600;
+      margin-top: 8px;
+      display: inline-block;
+      margin-bottom: 12px;
+
+      @media (max-width: 1367px) {
+        font-size: $heading6;
+
+
+      }
+    }
+  }
+}
+
+.badge-box {
+
+  input {
+    background-color: $secondary;
+    max-width: 65px;
+    max-height: 40px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: $fw-400;
+    color: $dark;
+    border: transparent;
+    margin-bottom: 10px;
+    margin-right: 6px;
+    text-align: center;
+  }
+
+  h4 {
+
+    font-size: $heading5;
+    font-weight: $fw-500;
+    color: $dark;
+    padding: 0px;
+    margin: 0 0px 12px 0px;
+
+  }
+}
+
+:ng-deep .p-button {
+
+  background-color: $secondary;
+}
+
+:ng-deep .p-inputnumber input {
+  max-width: 100px;
+  margin-left: auto;
+
+}
+
+.upload-plan {
+  padding: 10px 24px;
+
+  min-height: calc(100vh - 60px);
+
+  h3 {
+    font-size: $heading2;
+    font-weight: $fw-500;
+    color: $gray-800;
+    margin-bottom: 11px;
+
+    @media (max-width: 1367px) {
+      font-size: $heading4;
+    }
+  }
+
+  p {
+    font-size: $heading5;
+    font-weight: $fw-500;
+    color: $gray-600;
+
+    @media (max-width: 1367px) {
+      font-size: $heading6;
+    }
+
+    label {
+      margin-bottom: 0.9375rem;
+      display: inherit;
+    }
+  }
+
+  .formgrid.next-btn.save-btn {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  .save-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+  }
+}
+
+.parking-preview {
+  h3 {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.pre-img {
+  span {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: $primary;
+    border: 1px solid $light;
+    border-radius: 50px;
+    position: absolute;
+    right: -14px;
+    top: -14px;
+    cursor: pointer;
+
+    .pi {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: $light;
+    }
+  }
+}
+
+.slout-outer {
+  max-height: 200px;
+  overflow-y: auto;
+  width: calc(100% + 13px);
+}
+

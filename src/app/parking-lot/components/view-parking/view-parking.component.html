@@ -1,0 +1,148 @@
+<app-loader></app-loader>
+<div class="card breadcrumbs">
+    <div class="flex justify-content-between flex-wrap card-container purple-container">
+
+        <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-0">
+            <li class="active-dashboard">
+                <a [routerLink]="['/manager/dashboard']" class=" no-underline line-height-3 cursor-pointer ">Dashboard</a>
+            </li>
+            <li class="px-2 bcream-devider">
+                <span>|</span>
+            </li>
+            <li class="back-link">
+                <a [routerLink]="['/manager/parking']" class=" no-underline line-height-3 cursor-pointer ">Parking
+                    List</a>
+            </li>
+            <li class="px-2 bcream-devider">
+                <span>|</span>
+            </li>
+            <li class="current-link">
+                <span class=" line-height-3">View Parking</span>
+            </li>
+        </ul>
+        <!-- <p-button label="Create Parking" styleClass="p-button-outlined mb-0"></p-button> -->
+    </div>
+</div>
+
+<div class="main-card parking-preview">
+
+    <div class="table-top flex justify-content-between align-items-center">
+        <h3>
+            {{name}}
+        </h3>
+        <div class="flex align-items-center justify-content-center mb-0">
+            <p-button label="Edit" icon="pi pi-pencil" (click)="editParkingNavigation()"></p-button>
+
+        </div>
+    </div>
+    <div class="grid middle-line">
+        <div class="col-12 lg:col-6">
+            <div class="view-leftside">
+                <div class="name-outer">
+                    <h4>Parking Location</h4>
+                    <p>{{parkingLocation}}</p>
+                </div>
+                <div class="name-outer">
+                    <h4>Hazardous Load Rate</h4>
+                    <p>{{hazardousLoadRate}}%</p>
+                </div>
+                <div class="name-outer">
+                    <h4>Discount </h4>
+                    <p>{{offer}}%</p>
+                </div>
+                <div class="name-outer">
+                    <h4>Facilities </h4>
+                    <div class="fare-outer">
+
+                        <ul>
+                            <li *ngFor="let facility of facilities; let isLast=last">
+                                <span>{{facility.facilityName}}</span>
+                                <span *ngIf="!isLast" class="custom-divder">| </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="name-outer custom-fares" *ngFor="let truckType of truckTypes">
+                    <h4>Truck Type - {{truckType.vehicleName}} </h4>
+                    <h5>Fare Charges </h5>
+                    <div class="fare-outer fare-charge">
+
+                        <ul>
+                            <li>Hourly - {{truckType.fareChargesHourly}}/hr </li>
+                            <li class="custom-divder">| </li>
+                            <li>Night - {{truckType.fareChargesNight}}/hr </li>
+                            <li class="custom-divder">| </li>
+                            <li>Weekly - {{truckType.fareChargesWeekly}}/week</li>
+                        </ul>
+                    </div>
+                    <div class="name-outer extended-time">
+                        <h5>Extended Time Charges </h5>
+                        <!-- <h4>{{truckType.vehicleName}} </h4> -->
+                        <div class="fare-outer">
+
+                            <ul>
+                                <li>Hourly - {{truckType.overStayChargesTimeSlot1}}%</li>
+                                <li class="custom-divder">| </li>
+                                <li>Night - {{truckType.overStayChargesTimeSlot2}}%</li>
+                                <li class="custom-divder">| </li>
+                                <li>Weekly - {{truckType.overStayChargesTimeSlot3}}%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-12 lg:col-6">
+
+
+            <div class="view-leftside view-right">
+                <div class="name-outer" *ngFor="let vehicle of parkingLotSlotsOutput">
+                    <h4>Truck Type - {{vehicle.vehicleName}}</h4>
+                    <h5>{{ vehicle.slots.length}} Slots</h5>
+
+                    <ul class="custom-slot tlotScroll">
+                        <li *ngFor="let slot of vehicle.slots">{{slot.slotName}}</li>
+
+                    </ul>
+                </div>
+
+
+                <div class="name-outer">
+                    <h4>Parking Plan</h4>
+
+                    <div class="parking-plan" *ngIf="parkingLotLayout;else no_parking_layout">
+                        <p-image p-image-preview-indicator [src]="parkingLotLayout" alt="Image" [preview]="true"></p-image>
+
+                    </div>
+                    <ng-template #no_parking_layout>
+                        <div class="blank-img">
+                            <p>No Parking Plan Avaliable</p>
+                        </div>
+                    </ng-template>
+
+
+
+                </div>
+                <div class="name-outer">
+                    <h4>Uploaded Parking Photo</h4>
+                    <div class="grid" *ngIf="parkingLotImages.length>0;else no_parking_img">
+                        <div class="col-6 lg:col-3" *ngFor="let parkingLotImage of parkingLotImages">
+                            <div class="parking-plan">
+
+                                <p-image [preview]="true" [src]="parkingLotImage.imagePath" alt="Image"></p-image>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #no_parking_img>
+                        <div class="blank-img">
+                            <p>No Parking Images Avaliable</p>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

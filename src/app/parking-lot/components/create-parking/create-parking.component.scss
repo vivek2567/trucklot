@@ -1,0 +1,101 @@
+@import "../../../../assets/scss/variable";
+
+.main-card {
+  background: $light;
+
+  border-radius: 0.625rem;
+
+  margin-bottom: 30px;
+  padding: 24px;
+
+  .group-col {
+    max-width: 28.125rem;
+
+    @media (max-width: 768px) {
+
+      max-width: 100%;
+
+    }
+
+    input {
+      max-width: 8.75rem;
+
+      @media (max-width: 992px) {
+
+        max-width: 100%;
+
+      }
+    }
+
+    label {
+      font-size: $heading6;
+      font-style: normal;
+      font-weight: $fw-400;
+      color: $gray-600;
+    }
+  }
+
+  .p-checkbox-row {
+    label {
+      font-size: $heading6;
+      font-style: normal;
+      font-weight: $fw-400;
+      color: $gray-600;
+      margin-left: 0.625rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .form-deatail {
+    h3 {
+      margin-top: 0;
+      font-size: $heading2;
+      font-style: normal;
+      font-weight: $fw-500;
+      margin-bottom: 1.625rem;
+    }
+  }
+
+
+  .p-ripple {
+    height: 10.125rem;
+    width: 20.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bluelight-400;
+    border: 0.0625rem solid $primary;
+    border-style: dashed;
+    color: $gray-900;
+    font-size: $heading6;
+    font-weight: $fw-400;
+  }
+}
+
+
+
+
+.parking-location {
+
+  .p-button-icon-only {
+    background-color: transparent !important;
+    border: 0.0625rem solid $gray-500;
+    border-left: 0px;
+    color: $gray-500;
+    cursor: pointer;
+
+  }
+
+}
+
+.formgrid {
+  margin-bottom: 24px;
+
+  label {
+    margin-bottom: 15px;
+  }
+}
+
+.field {
+  margin-bottom: 0;
+}

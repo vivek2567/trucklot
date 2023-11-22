@@ -1,0 +1,49 @@
+<div class="layout-topbar">
+
+   <button #menubutton (click)="toggleSidebar()" class="p-link layout-menu-button layout-topbar-button">
+      <i class="pi pi-bars"></i>
+   </button>
+
+   <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button">
+      <i class="pi pi-ellipsis-v"></i>
+   </button>
+
+   <div #topbarmenu class="layout-topbar-menu">
+
+      <div class="bell-outer">
+         <button class="p-link layout-topbar-button">
+            <i class="pi pi-bell" (click)="showHideNotificationList()"></i>
+
+         </button>
+         <span>{{ notificationRecord.length}}</span>
+         <div *ngIf="showNotifications" class="droplist-outer">
+            <h3>Notification</h3>
+            <div class="notification-main tlotScroll">
+               <div class="notification-list" *ngFor="let notify of notificationRecord">
+                  <div class="user-img">
+                     <img src="assets/images/notification-user.png" />
+                  </div>
+                  <div class="user-righttext" (click)="handleNotificationClick(notify)">
+                     <h5>{{ notify.subject }}</h5>
+                     <p>{{ notify.arrivalTime }} to {{ notify.departureTime }}</p>
+                     <h4>{{ notify.message }}</h4>
+                  </div>
+
+               </div>
+            </div>
+
+         </div>
+      </div>
+      <button class="p-link layout-topbar-button">
+         <i class="pi pi-cog"></i>
+         <span>Settings</span>
+      </button>
+      <div class="p-img">
+         <span>{{userName}}</span>
+         <a>
+            <img [src]="imagePath" alt="Prime Blocks" class="ml-3" width="42px" />
+         </a>
+      </div>
+
+   </div>
+</div>

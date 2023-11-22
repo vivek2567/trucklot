@@ -1,0 +1,132 @@
+<app-loader></app-loader>
+
+<div class="card breadcrumbs">
+    <div class="flex justify-content-between flex-wrap card-container purple-container mb-3">
+
+        <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-0">
+            <li>
+                <a [routerLink]="['/manager/dashboard']"  class=" no-underline line-height-3 cursor-pointer ">Dashboard</a>
+            </li>
+            <li class="px-2">
+                <span>|</span>
+            </li>
+            <li>
+                <span class="line-height-3">Profile</span>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<div class="table-card">
+    <div class="table-top ">
+        <h3 class="sub-text">Profile</h3>
+
+        <p-toast></p-toast>
+        <form [formGroup]="userForm" (ngSubmit)="submit(userForm)">
+
+            <div class="light-bg">
+                <div class="uploadImageOuter">
+                    <img [src]="imageUrl" alt="Preview Image" *ngIf="imageUrl" class="preview-image">
+
+                    <div class="editImage" *ngIf="uploadBtn">
+                        <input type="file" (change)="onImageSelected($event)" accept="image/*" id="imageInput"
+                            style="opacity: 0;">
+                        <i class="pi pi-pencil" for="imageInput" style="font-size: .8rem; color: #fff;"></i>
+                    </div>
+                    <div *ngIf="isProfileImgError">
+                        <div class="validation-error">File size exceeds the 5MB limit.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid form-deatail">
+                <div class="col-12 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Name</label>
+                        <input pInputText placeholder="Enter Name" [readonly]="disableForm" id="username"
+                            aria-describedby="username-help" formControlName="name" />
+                        <div
+                            *ngIf="userForm.get('name')?.hasError('required')  && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                        <div
+                            *ngIf="userForm.get('name')?.hasError('pattern')  && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+                            <div class="validation-error"> Please enter Only Charachters*</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Mobile Number</label>
+                        <input pInputText placeholder="Enter Mobile Number" id="mobilenumber"
+                            aria-describedby="username-help" [readonly]="disableForm" formControlName="mobileNumber" />
+                        <div
+                            *ngIf="userForm.get('mobileNumber')?.hasError('required')  && (userForm.get('mobileNumber')?.dirty || userForm.get('mobileNumber')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                        <div
+                            *ngIf="userForm.get('mobileNumber')?.hasError('pattern')  && (userForm.get('mobileNumber')?.dirty || userForm.get('mobileNumber')?.touched)">
+                            <div class="validation-error"> Please enter only numbers.</div>
+                        </div>
+                        <div
+                            *ngIf="userForm.get('mobileNumber')?.hasError('minlength')  && (userForm.get('mobileNumber')?.dirty || userForm.get('mobileNumber')?.touched)">
+                            <div class="validation-error"> Minimun length should be 9*</div>
+                        </div>
+                        <div
+                            *ngIf="userForm.get('mobileNumber')?.hasError('maxlength')  && (userForm.get('mobileNumber')?.dirty || userForm.get('mobileNumber')?.touched)">
+                            <div class="validation-error"> Maximum length should be 15*</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Email</label>
+                        <input pInputText placeholder="Enter Email" id="email" readonly aria-describedby="username-help"
+                            formControlName="email" />
+                        <div class="validation-error"
+                            *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+                            <div class="validation-error">Field is required*</div>
+                        </div>
+                    </div>
+                    <div class="form-deatail">
+
+
+                        <div class="bank-outer">
+                            <h3>Bank Accounts</h3>
+                            <ul class="flex justify-content-between align-items-center">
+                                <li class="flex align-items-center">
+                                    <div class="visa-inner"><img src="assets/images/visa-card.png" /></div>
+                                    <div class="right-text">
+                                        <h4>Visa xxxx 1648
+                                        </h4>
+                                        <p>Expires on 11/25</p>
+                                    </div>
+                                </li>
+
+                                <li><img src="assets/images/dot.svg" /></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-12 lg:col-6">
+                    <div class="profile-rightbtn">
+
+                        <!-- <div class="password-link">
+                             <a href="">
+                               <p>Password Change</p>
+                               <i class="pi pi-lock" style="font-size: 1.5rem"></i>
+                             </a> 
+                             </div> -->
+                        <div class="edit-outer">
+                            <p-button *ngIf="showEdit" label="Edit" (click)="btnEdit()"></p-button>
+                            <p-button *ngIf="showUpdate" label="Update" type="submit"></p-button>
+                            <p-button *ngIf="showCancel" styleClass="p-button-outlined mb-0 ml-2" (click)="onCancel()"
+                                label="Cancel" class=""></p-button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>

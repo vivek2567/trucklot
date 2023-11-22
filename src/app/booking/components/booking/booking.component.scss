@@ -1,0 +1,86 @@
+@import "../../../../assets/scss/variable";
+
+.table-card {
+  background: $light;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  min-height: calc(100vh - 165px);
+
+
+
+  .table-top {
+    padding: 24px 24px 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.sub-text {
+  font-size: $heading2;
+  font-style: normal;
+  font-weight: $fw-500;
+  line-height: normal;
+  margin: 0;
+}
+
+.truck {
+  display: flex;
+}
+
+.pi.pi-truck {
+  color: $primary !important;
+  border: 0.0625rem solid $primary;
+  border-radius: 50%;
+  margin-left: -0.1875rem;
+  background: $light;
+  padding: 0.3125rem 0.1875rem;
+  background-color: $secondary;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.five-truck {
+  color: $primary !important;
+  border: 0.0625rem solid $primary;
+  padding: 0.3125rem;
+  font-size: $heading6;
+  border-radius: 50%;
+  margin-left: -0.1875rem;
+  background: $light;
+  background-color: $secondary;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.c-search {
+  input {
+    width: 10rem;
+    height: 2rem;
+  }
+}
+
+.hazardous {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: "";
+    right: -15px;
+    width: 1px;
+    height: 19px;
+    background-color: $gray-400;
+    display: inline-block;
+    z-index: 99;
+  }
+}
+

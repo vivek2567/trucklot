@@ -1,0 +1,438 @@
+<app-loader></app-loader>
+<p-toast></p-toast>
+<div class="card breadcrumbs">
+    <div class="flex justify-content-between flex-wrap card-container purple-container mb-3">
+
+        <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-0">
+            <li class="active-dashboard">
+                <a [routerLink]="['/manager/dashboard']" class=" no-underline line-height-3 cursor-pointer ">Dashboard</a>
+            </li>
+            <li class="px-2 bcream-devider">
+                <span>|</span>
+            </li>
+            <li class="back-link">
+                <a [routerLink]="['/manager/parking']" class=" no-underline line-height-3 cursor-pointer ">Parking List</a>
+            </li>
+            <li class="px-2 bcream-devider">
+                <span>|</span>
+            </li>
+            <li class="current-link">
+                <span class=" line-height-3">Edit Parking</span>
+            </li>
+        </ul>
+        <!-- <p-button label="Create Parking" styleClass="p-button-outlined mb-0"></p-button> -->
+    </div>   
+</div>
+<form [formGroup]="parkingForm">
+    <div class="main-card">
+        <div class="form-deatail">
+            <h3>Edit Parking</h3>
+            <div class="grid">
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Parking Name</label>
+                        <input pInputText placeholder="Type Parking Name" id="username" aria-describedby="username-help"
+                            formControlName="name" />
+                        <div
+                            *ngIf="parkingForm.get('name')?.hasError('required')  && (parkingForm.get('name')?.dirty || parkingForm.get('name')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid parking-location">
+                        <label htmlFor="username">Parking Location</label>
+                        <div class="p-inputgroup">
+                            <input  type="text" pInputText placeholder="Set Location on Map"
+                                formControlName="locAddress"  mapAutoComplete (onSearch)="searchAutoCompleteLocation($event)"  />
+                            <button class="send-btn" type="button" (click)="openMap()" pButton icon="pi pi-send"
+                                styleClass="p-button-warn"></button>
+                        </div>
+                        <div
+                            *ngIf="parkingForm.get('locAddress')?.hasError('required')  && (parkingForm.get('locAddress')?.dirty || parkingForm.get('locAddress')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Hazardous Load Rate (%)</label>
+                        <input type="text" pInputText placeholder="10" formControlName="hazardousLoadRate" />
+                        <div
+                            *ngIf="parkingForm.get('hazardousLoadRate')?.hasError('required')  && (parkingForm.get('hazardousLoadRate')?.dirty || parkingForm.get('hazardousLoadRate')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                        <div
+                            *ngIf="parkingForm.get('hazardousLoadRate')?.hasError('pattern')  && (parkingForm.get('hazardousLoadRate')?.dirty || parkingForm.get('hazardousLoadRate')?.touched)">
+                            <div class="validation-error"> Only Digits Allowed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Discount (%)</label>
+                        <input type="text" pInputText placeholder="10" formControlName="offer" />
+                        <div
+                            *ngIf="parkingForm.get('offer')?.hasError('required')  && (parkingForm.get('offer')?.dirty || parkingForm.get('offer')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                        <div
+                            *ngIf="parkingForm.get('offer')?.hasError('pattern')  && (parkingForm.get('offer')?.dirty || parkingForm.get('offer')?.touched)">
+                            <div class="validation-error"> Only Digits Allowed*</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Taxes and Fees (%)</label>
+                        <input type="text" pInputText placeholder="10" formControlName="taxAndFees" />
+                        <div
+                            *ngIf="parkingForm.get('taxAndFees')?.hasError('required')  && (parkingForm.get('taxAndFees')?.dirty || parkingForm.get('taxAndFees')?.touched)">
+                            <div class="validation-error"> This Field is required*</div>
+                        </div>
+                        <div
+                            *ngIf="parkingForm.get('taxAndFees')?.hasError('pattern')  && (parkingForm.get('taxAndFees')?.dirty || parkingForm.get('taxAndFees')?.touched)">
+                            <div class="validation-error"> Only Digits Allowed*</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="facility">Facilities</label>
+                        <div class="lg:flex md:flex-row sm:flex-column gap-1 p-checkbox-row facilities-input">
+                            <div class="flex align-items-center gap-1 mr-2 lg:mt-3 sm:mt-2"
+                                *ngFor="let facility of facilitiesList">
+                               
+                                <!-- <input class="custom-control-label" type="checkbox" [checked]="facility.checked"
+                                    (change)="addFacilityId(facility.id)" [id]="facility.id" />
+                                <label [for]="facility.id">{{ facility.facilityName }}</label> -->
+                                <label [for]="facility.id" class="container">{{ facility.facilityName }}
+                                    <input type="checkbox" type="checkbox" [checked]="facility.checked"
+                                    (change)="addFacilityId(facility.id)" [id]="facility.id" >
+                                    <span class="checkmark"></span>
+                                  </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                        <label htmlFor="username">Facilities</label>
+                        <div class="lg:flex md:flex-row  sm:flex-column gap-1 lg:pt-3 sm:pt-0 p-checkbox-row">
+                            <div class="flex align-items-center gap-1 mr-2 lg:mt-0 sm:mt-2"
+                                *ngFor="let facilities of facilitiesList">
+                                <p-checkbox name="group1" [(ngModel)]="parkingLotFacility"  (onChange)="addFacilityId(facilities.id)"
+                                    [value]="facilities.id" [inputId]="facilities.id">
+                                </p-checkbox>
+                                <label>{{ facilities.facilityName }}</label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="field col-12 md:col-6 lg:col-6">
+                    <div class="flex flex-column formgrid">
+                      <label for="facility">Facilities</label>
+                      <div class="lg:flex md:flex-row sm:flex-column gap-1 lg:pt-3 sm:pt-0 p-checkbox-row">
+                        <div class="flex align-items-center gap-1 mr-2 lg:mt-0 sm:mt-2" *ngFor="let facility of facilitiesList">
+                      
+                          <p-checkbox [(ngModel)]="selectedCities" formControlName="fakeFacilities"  (onChange)="addFacilityId(facility.id)"
+                            [id]="facility.id"></p-checkbox>
+                          <label [for]="facility.id">{{ facility.facilityName }}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+            </div>
+        </div>
+        <div class="divider">
+        </div>
+        <div class="form-deatail">
+            <div formArrayName="truckTypeArray" *ngFor="let truck of truckTypeArray.controls; let i=index">
+                <div [formGroupName]="i">
+                    <div class="formgrid grid">
+                        <div class="field col-12 md:col-6 lg:col-6">
+                            <div class="flex flex-column formgrid">
+                                <label htmlFor="username">Truck Type</label>
+                                <p-dropdown [options]="truckTypes" (onChange)="selectTruckType()" optionLabel="name"
+                                    optionValue="id" formControlName="truckType"
+                                    placeholder="Select Truck Type"></p-dropdown>
+                                <ng-template let-option pTemplate="item">
+                                    <div [ngClass]="{'disabled-option': option.disabled}">
+                                        {{ option.name }}
+                                    </div>
+                                </ng-template>
+                                <div
+                                    *ngIf="truck.get('truckType')?.hasError('required')  && (truck.get('truckType')?.dirty || truck.get('truckType')?.touched)">
+                                    <div class="validation-error"> This Field is required*</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field col-12 md:col-6 lg:col-6 add-morebtn" *ngIf="i==0">
+                           <div class="flex flex-column sm:align-items-start lg:align-items-end formgrid">
+                                <label class="l-gray" htmlFor="username">Total Truck Category -
+                                    {{totalTruckCategory}}</label>
+                                <p-button label="Add More" icon="pi pi-plus" (click)="addNewTruckType({})"
+                                    iconPos="right" [disabled]=" buttonDisabled  || noOptionsAvailable "></p-button>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="formgrid grid">
+                        <div class="field col-12 md:col-6 lg:col-6">
+                            <div class="flex flex-column formgrid ">
+                                <label htmlFor="username">Fare Charges ($)</label>
+                                <div class="lg:flex md:flex-row  sm:flex-column  gap-3 group-col">
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username">Hourly</label>
+                                        <input pInputText id="username" placeholder="10"
+                                            aria-describedby="username-help" formControlName="hourly" />
+                                        <div
+                                            *ngIf="truck.get('hourly')?.hasError('required')  && (truck.get('hourly')?.dirty || truck.get('hourly')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('hourly')?.hasError('pattern')  && (truck.get('hourly')?.dirty || truck.get('hourly')?.touched)">
+                                            <div class="validation-error"> Only Digits Allowed</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username" class="">Nighttime Hourly  <img class="infor-img" src ="assets/images/nightly-Info.svg"/></label>
+                                        <input pInputText id="username" aria-describedby="username-help"
+                                            placeholder="20" formControlName="nightly" />
+                                        <div
+                                            *ngIf="truck.get('nightly')?.hasError('required')  && (truck.get('nightly')?.dirty || truck.get('nightly')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('nightly')?.hasError('pattern')  && (truck.get('nightly')?.dirty || truck.get('nightly')?.touched)">
+                                            <div class="validation-error"> Only Digits Allowed*</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username" class="">Weekly</label>
+                                        <input pInputText id="username" aria-describedby="username-help"
+                                            placeholder="15" formControlName="weekly" />
+                                        <div
+                                            *ngIf="truck.get('weekly')?.hasError('required')  && (truck.get('weekly')?.dirty || truck.get('weekly')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('weekly')?.hasError('pattern')  && (truck.get('weekly')?.dirty || truck.get('weekly')?.touched)">
+                                            <div class="validation-error"> Only Digits Allowed*</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field col">
+                            <div class="flex flex-column  formgrid">
+                                <label htmlFor="username">Extended Time Charges (%)</label>
+                                <div class="lg:flex md:flex-row  sm:flex-column  gap-3 group-col">
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username" class="lg:mt-0">1-8 hrs</label>
+
+                                        <input type="text" pInputText placeholder="10" formControlName="slot1" />
+                                        <div
+                                            *ngIf="truck.get('slot1')?.hasError('required')  && (truck.get('slot1')?.dirty || truck.get('slot1')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('slot1')?.hasError('pattern')  && (truck.get('slot1')?.dirty || truck.get('slot1')?.touched)">
+                                            <div class="validation-error"> Only Digits allowed*</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username" class="">8-16 hrs</label>
+                                        <input type="text" pInputText placeholder="20" formControlName="slot2" />
+                                        <div
+                                            *ngIf="truck.get('slot2')?.hasError('required')  && (truck.get('slot2')?.dirty || truck.get('slot2')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('slot2')?.hasError('pattern')  && (truck.get('slot2')?.dirty || truck.get('slot2')?.touched)">
+                                            <div class="validation-error"> Only Digits Allowed*</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-column">
+                                        <label htmlFor="username" class="">16-24 hrs</label>
+
+                                        <input type="text" pInputText placeholder="15" formControlName="slot3" />
+                                        <div
+                                            *ngIf="truck.get('slot3')?.hasError('required')  && (truck.get('slot3')?.dirty || truck.get('slot3')?.touched)">
+                                            <div class="validation-error"> This Field is required*</div>
+                                        </div>
+                                        <div
+                                            *ngIf="truck.get('slot3')?.hasError('pattern')  && (truck.get('slot3')?.dirty || truck.get('slot3')?.touched)">
+                                            <div class="validation-error"> Only Digits Allowed*</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider">
+            </div>
+            <div class="upload-outer">
+                <label htmlFor="username">Upload Parking Photo</label>
+                <div class="grid">
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <div class="add-image custom-addimg">
+                            <p-fileUpload mode="basic" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"
+                                accept="image/*" (onUpload)="uploadImage1($event)" [auto]="true"
+                                chooseLabel="Add Image"></p-fileUpload>
+                            <div *ngIf="btn1" class="img-overlap" [ngStyle]="{ 'background-image': 'url(' + imageUrl1 + ')' }">
+                                <ul>
+                                    <li>
+                                        <img src="assets/images/img-delete.svg" alt="" (click)="del1(imageUrl1)" />
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/img-view.svg" alt="" (click)="showDialog(imageUrl1)" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="isImgError1">
+                                <div class="validation-error">File size exceeds the 5MB limit.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <div class="add-image">
+                            <p-fileUpload mode="basic" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"
+                                accept="image/*" (onSelect)="uploadImage2($event)" [auto]="true"
+                                chooseLabel="Add Image"></p-fileUpload>
+                            <div *ngIf="btn2" class="img-overlap" [style.background-image]="'url(' + imageUrl2 + ')'">
+                                <ul>
+                                    <li>
+                                        <img src="assets/images/img-delete.svg" alt="" (click)="del2(imageUrl2)" />
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/img-view.svg" alt="" (click)="showDialog(imageUrl2)" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="isImgError2">
+                                <div class="validation-error">File size exceeds the 5MB limit.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 md:col-6 lg:col-4">
+                        <div class="add-image">
+                            <p-fileUpload mode="basic" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"
+                                accept="image/*" (onSelect)="uploadImage3($event)" [auto]="true"
+                                chooseLabel="Add Image"></p-fileUpload>
+                            <div *ngIf="btn3" class="img-overlap" [style.background-image]="'url(' + imageUrl3 + ')'">
+                                <ul>
+                                    <li>
+                                        <img src="assets/images/img-delete.svg" alt="" (click)="del3(imageUrl3)" />
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/img-view.svg" alt="" (click)="showDialog(imageUrl3)" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="isImgError3">
+                                <div class="validation-error">File size exceeds the 5MB limit.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider">
+            </div>
+            <div class="under-maintance">
+                <h5>Under Maintenance</h5>
+
+                <div class="grid startdate">
+                    <div class="col-12 lg:col-6">
+                        <h4>Start Date and Time</h4>
+                        <div class="grid custom-width">
+                            <div class="col-6 lg:col-6">
+                                <div class="date-input">
+                                    <label htmlFor="username" class="">Date</label>
+                                    <p-calendar [showIcon]="true" formControlName="startDate"  placeholder="Select Date" [minDate]="minDate"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="col-6 lg:col-6">
+                                <div class="date-input">
+                                    <label htmlFor="username" class="">Time</label>
+                                    <p-calendar [timeOnly]="true" [showIcon]="true"  [minDate]="minDate"  placeholder="Select Time" formControlName="startTime" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 lg:col-6">
+                        <h4>End Date and Time</h4>
+                        <div class="grid custom-width">
+                            <div class="col-6 lg:col-6">
+                                <div class="date-input">
+                                    <label htmlFor="username" class="">Date</label>
+                                    <p-calendar [showIcon]="true" formControlName="endDate"
+                                    placeholder="Select Date" [minDate]="minDate"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="col-6 lg:col-6">
+                                <div class="date-input">
+                                    <label htmlFor="username" class="">Time</label>
+                                    <p-calendar [timeOnly]="true" [showIcon]="true"   placeholder="Select Time" formControlName="endTime"  [minDate]="minDate"  />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="formgrid grid">
+ 
+                    <div class="field col-12 md:col-6 lg:col-6">
+                        <div class="flex flex-column gap-2">
+   
+                            <div
+                                class="lg:flex md:flex-row  sm:flex-column gap-1 lg:pt-3 sm:pt-0 p-checkbox-row align-items-center">
+                                <div class="flex align-items-center gap-1 mr-2 lg:mt-0 sm:mt-2"  *ngFor="let main of entireParkingMaintanceList">
+                                    <p-radioButton [inputId]="main.value" [value]="main.value"
+                                    formControlName="isEntireParkingUnderMaintenance" (onClick)="entireParkingMaintance(main.value)"></p-radioButton>
+                                    <label for="ny">{{main.name}}</label>
+                                </div>
+                                
+                                <label htmlFor="username">Select Entire Parking</label>
+   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="formgrid">
+                    <div *ngIf="maintenanceslots.length > 0" class="field">
+                        <p-multiSelect [disabled]="isEntireParkingNotAvaliable" [options]="maintenanceslots" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]="selectedSlots" placeholder="Search slots for maintenance"
+                            optionLabel="slotName">
+                        </p-multiSelect>
+                    </div>
+                    <div *ngIf="noSlotSelected   && this.selectedSlots.length===0" class="field">
+                        <p>Currently no slot is under maintenance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="formgrid grid next-btn">
+            <div class="field col flex align-items-center ">
+                <p-button label="Next" (click)="nextPage(parkingForm)" class="ml-auto"></p-button>
+            </div>
+        </div>
+    </div>
+    <div class="img-pre custom-preimg" *ngIf="imagePreview">
+        <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '70vw' }" [draggable]="false" [resizable]="false" (click)="onDialogHide()">
+            <img [src]="imageLinkForPreview" class="preview-image"  alt="preview-image"/>
+        </p-dialog>
+        </div>
+</form>

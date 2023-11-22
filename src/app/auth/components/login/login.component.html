@@ -1,0 +1,56 @@
+<app-loader></app-loader>
+<p-toast></p-toast>
+<div class="login-sec grid m-0">
+    <p-image src="assets/images/login-truck.png" alt="Image" width="200" class="img-truck"></p-image>
+    <div class="flex justify-content-center align-items-start login-left col-12 lg:col-6 ">
+        <div class="logo-sec text-center">
+            <p-image class="custom-logo" src="assets/images/logo-white.svg" alt="Image"></p-image>
+            <h1 class="mb-0 text-white">The Evolution</h1>
+            <p class="mt-0 text-white mb-0 mb-lg-5">of Parking Tracking</p>
+        </div>
+
+    </div>
+    <div class="login-right col-12 lg:col-6  flex ">
+        <form [formGroup]="loginForm">
+            <h3>Login</h3>
+            <div class="email-outer">
+                <div class="flex flex-column  bottom-spece formgrid">
+                    <label htmlFor="username">Email</label>
+                    <input pInputText id="username" [class.ng-invalid]="loginForm.get('email')?.hasError('required')  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"  [class.ng-dirty]="loginForm.get('email')?.hasError('required')  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" placeholder="Enter Email" aria-describedby="username-help"
+                        formControlName='email' />
+                    <small id="username-help" class="hidden">Enter your username to reset your password.</small>
+                    <div
+                        *ngIf="loginForm.get('email')?.hasError('required')  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                        <div class="validation-error"> This field is required*</div>
+                    </div>
+                    <div
+                        *ngIf="loginForm.get('email')?.hasError('pattern')  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                        <div class="validation-error"> Please enter valid email address*</div>
+                    </div>
+                </div>
+                <div class="flex flex-column formgrid">
+                    <label htmlFor="username">Password</label>
+                    <p-password class="pass-input" [class.ng-invalid]="loginForm.get('password')?.hasError('required')  && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" [class.ng-dirty]="loginForm.get('password')?.hasError('required')  && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" placeholder="Enter Password" [feedback]=false indicator="false"
+                        [toggleMask]="true" formControlName='password'></p-password>
+                    <div
+                        *ngIf="loginForm.get('password')?.hasError('required')  && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                        <div class="validation-error"> This field is required*</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-content-between gap-2 my-36">
+                <span class="flex align-items-center gap-1">
+                    <p-checkbox formControlName="rememberMe" [binary]="true" value="" inputId="ny"></p-checkbox>
+                    <label class="sub-label" for="ny">Remember Me</label>
+                </span>
+                <div class="passwod-text">
+                    <!-- <p-button label="Forgot Password?" styleClass="p-button-link"></p-button> -->
+                    <p><a href="#">Forgot Password?</a></p>
+                </div>
+            </div>
+            <div class="flex flex-column gap-2">
+                <p-button type="submit" label="Sign In" class="w-100" (click)="login()"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

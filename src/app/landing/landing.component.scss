@@ -1,0 +1,682 @@
+@import "../../assets/scss/variable";
+
+.main-body {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.landing-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow: auto;
+}
+
+.lotsNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 30px;
+
+    @media (max-width: 578px) {
+
+        display: inline-block;
+    }
+}
+
+.lotsNav {
+    .ctaListing {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        margin: 0;
+
+        @media (max-width: 578px) {
+            margin: 10px 0px 0px;
+        }
+    }
+}
+
+.lotsNav {
+    .ctaListing {
+        .ctaBtn {
+            padding: 16px 37px;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: "Roboto", sans-serif;
+
+            @media (max-width: 768px) {
+
+                padding: 10px;
+            }
+
+
+        }
+    }
+}
+
+.ctaListing {
+    .login {
+        border: 1px solid $primary;
+        color: $primary;
+        background-color: transparent;
+ 
+    }
+}
+
+.ctaListing {
+
+    .contact {
+        border: 1px solid $primary;
+        background: $primary;
+        color: $light;
+    }
+
+}
+
+.heroSection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.heroSection {
+    h1 {
+        color: $dark;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: 0;
+
+        @media (max-width: 1366px) {
+            margin-top: 20px;
+            font-size: 50px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 40px;
+
+        }
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+
+        }
+    }
+
+}
+
+.heroSection h1 .highlight {
+    color: $primary;
+    font-weight: 500;
+}
+
+.heroSection {
+    .left {
+        width: 50%;
+
+        @media (max-width: 992px) {
+            width: 100%;
+
+        }
+
+        img {
+            max-width: 100%;
+            padding-right: 10px;
+            padding-left: 0px;
+
+            @media (max-width: 1366px) {
+
+                max-width: 120px;
+            }
+
+        }
+    }
+}
+
+.heroSection {
+    .right {
+        width: 50%;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        @media (max-width: 992px) {
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+
+            @media (max-width: 992px) {
+                width: 50%;
+
+                @media (max-width: 578px) {
+                    width: 80%;
+
+                }
+            }
+        }
+    }
+}
+
+.heroSection {
+    .subHeading {
+        color: #6D6D6D;
+        font-size: 30px;
+        font-weight: 500;
+        margin-block: 24px 15px;
+
+        @media (max-width: 1366px) {
+
+            font-size: 26px;
+        }
+
+        @media (max-width: 768px) {
+
+            font-size: 20px;
+        }
+    }
+}
+
+.heroSection {
+    .description {
+        color: #3D3D3D;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 0;
+        margin: 0;
+
+        @media (max-width: 1366px) {
+
+            font-size: 16px;
+        }
+    }
+}
+
+.features {
+    margin-top: 24px;
+}
+
+.features {
+    h3 {
+        color: $dark;
+        font-size: 22px;
+        font-weight: 400;
+    }
+}
+
+.features {
+    .listing {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 24px;
+
+        @media (max-width: 768px) {
+
+            display: inline-block;
+            line-height: 30px;
+        }
+    }
+}
+
+.features {
+    .item small {
+        color: $dark;
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 0px;
+    }
+}
+
+.heroSection {
+    .gradientLine {
+        background-image: linear-gradient(90deg, #DFE5FF 0%, rgba(223, 229, 255, 0.00) 94.41%);
+        ;
+        max-width: 590px;
+        height: 5px;
+        margin-block: 40px;
+
+        @media (max-width: 768px) {
+            margin-block: 20px;
+        }
+    }
+}
+
+.scan {
+    h6 {
+        color: $primary;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 4.06px;
+        margin: 0;
+    }
+}
+
+.scanner {
+    margin-top: 15px;
+    display: flex;
+    gap: 58px;
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.scanner {
+    .scannerPlatform {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+}
+
+.talkStrip {
+    background-color: $dark;
+    padding-block: 32px;
+    margin-top: 85px;
+
+    @media (max-width: 578px) {
+        margin-top: 30px;
+
+    }
+
+    .landing-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 992px) {
+            display: inherit;
+            text-align: center;
+
+        }
+    }
+}
+
+.talkStrip {
+    .title {
+        color: $light;
+        font-size: 30px;
+        font-weight: 500;
+
+        @media (max-width: 1366px) {
+
+            font-size: 26px;
+        }
+
+        @media (max-width: 1366px) {
+
+            font-size: 22px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 20px;
+
+        }
+
+    }
+}
+
+.talkStrip {
+    .talkBtn {
+        border-radius: 18px;
+        border: 1px solid $light;
+        color: $light;
+        font-size: 16px;
+        padding: 16px 37px;
+        background-color: transparent;
+        cursor: pointer;
+        font-weight: 400;
+        font-family: "Roboto", sans-serif;
+    }
+}
+
+.management {
+    padding-top: 100px;
+    position: relative;
+
+    @media (max-width: 1366px) {
+
+        padding-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+
+        padding-top: 30px;
+    }
+}
+
+.management {
+    .circleMiddle {
+        position: absolute;
+        inset: 0 auto auto 0;
+        z-index: -1;
+    }
+}
+
+.management {
+    h2 {
+        color: $dark;
+        font-size: 60px;
+        font-weight: 400;
+        text-align: center;
+        margin: 0;
+
+        @media (max-width: 1366px) {
+
+            font-size: 50px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 40px;
+
+        }
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+
+        }
+    }
+}
+
+.management {
+    .heroSection {
+        margin-top: 77px;
+
+        @media (max-width: 1366px) {
+
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+
+            margin-top: 10px;
+        }
+    }
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.getStartedBtn {
+    padding: 16px 37px;
+    border-radius: 12px;
+    border: 1px solid $primary;
+    background: var(--primary-blue, $primary);
+    color: var(--black-and-white-white, $light);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.lotsFooter {
+    padding-block: 85px;
+    background: $dark;
+    margin-top: 100px;
+    position: relative;
+
+    @media (max-width: 992px) {
+        padding-block: 60px;
+    }
+
+}
+
+.lotsFooter {
+    h4 {
+        text-align: center;
+        color: $light;
+        font-size: 40px;
+        font-weight: 500;
+
+        @media (max-width: 1366px) {
+
+            margin-top: 0px;
+        }
+
+        @media (max-width: 992px) {
+
+            font-size: 34px;
+            margin: 0px 15px;
+        }
+
+        @media (max-width: 768px) {
+
+            font-size: 30px;
+        }
+
+    }
+}
+
+.lotsFooter {
+    .form-group {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 88px;
+
+        @media (max-width: 992px) {
+            gap: 30px;
+        }
+    }
+}
+
+.lotsFooter {
+    .input-field {
+        width: 100%;
+    }
+
+}
+
+.lotsFooter {
+    .input-field {
+        label {
+            color: $light;
+            font-family: Roboto;
+            font-size: 16px;
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-bottom: 15px;
+            margin-top: 32px;
+        }
+    }
+}
+
+.lotsFooter {
+    .waveOne {
+        position: absolute;
+        inset: 0 0 auto auto;
+     
+
+        @media (max-width: 992px) {
+            display: none;
+
+        }
+    }
+}
+
+.lotsFooter {
+    .waveTwo {
+        position: absolute;
+        top: 30%;
+
+        @media (max-width: 992px) {
+            display: none;
+
+        }
+
+    }
+
+    .form {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // gap: 35px;
+        margin-top: 53px;
+
+        @media (max-width: 992px) {
+
+            max-width: 90%;
+        }
+    }
+
+
+}
+
+.lotsFooter {
+    .input-field {
+        input {
+            padding: 16px;
+            background-color: transparent;
+            border-radius: 8px;
+            border: 1px solid #CFCFCF;
+            width: 100%;
+            caret-color: $light;
+            height: 54px;
+            color: $light;
+            font-size: 16px;
+            font-family: "Roboto", sans-serif;
+
+        }
+    }
+}
+
+.lotsFooter .input-field input:focus,
+.lotsFooter textarea:focus {
+    outline: none;
+}
+
+.lotsFooter textarea {
+    padding: 16px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    width: 100%;
+    caret-color: $light;
+
+    color: $light;
+    font-size: 16px;
+
+}
+
+.lotsFooter .submitBtn {
+    text-align: center;
+    margin-top: 53px;
+}
+
+.lotsFooter .submitBtn button {
+    cursor: pointer;
+    padding: 16px 37px;
+    border-radius: 84px;
+    background: $light;
+    color: $dark;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 483px;
+    border: none;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+.footerBottom {
+    background: $gray-900;
+    padding-block: 44px;
+
+    @media (max-width: 1366px) {
+
+        padding-block: 10px;
+    }
+
+    .landing-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 578px) {
+            display: inline-block;
+
+        }
+    }
+}
+
+.footerBottom .ctas .links a {
+    color: $light;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+
+.footerBottom {
+    address {
+        color: $light;
+        font-size: 16px;
+        text-decoration: none;
+        font-style: normal;
+    }
+
+    .ctas {
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            @media (max-width: 768px) {
+
+                display: inherit;
+            }
+
+            @media (max-width: 992px) {
+
+                line-height: 28px;
+            }
+        }
+    }
+
+    .socialLinks {
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+    }
+}
+
+.circleTop {
+    position: fixed;
+    z-index: -1;
+    inset: 0 0 auto auto;
+}
+
+.mobile-scanner {
+    display: flex;
+    gap: 0;
+    display: none;
+
+    img {
+        padding-left: 0px !important;
+    }
+
+    @media (max-width: 1199px) {
+        display: flex;
+        margin-top: 10px;
+    }
+}

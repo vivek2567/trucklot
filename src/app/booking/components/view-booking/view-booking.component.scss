@@ -1,0 +1,184 @@
+@import '../../../../assets/scss/variable';
+
+.booking-popup {
+
+    .details-heading {
+        padding: 20px 0px;
+
+        h3 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 500;
+            color: $gray-800;
+
+            @media (max-width: 1367px) {
+                font-size: 18px;
+                margin-bottom: 4px;
+
+
+            }
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            color: $gray-800;
+            margin: 0px;
+            padding: 0px;
+
+            @media (max-width: 1367px) {
+                font-size: 14px;
+
+
+            }
+
+            span {
+                color:
+                    $primary;
+            }
+        }
+
+    }
+
+    .custom-text {
+
+        p {
+
+            font-size: 18px;
+            font-weight: $fw-400;
+            color: $gray-800;
+            padding: 0px;
+            margin: 0px;
+
+            @media (max-width: 1367px) {
+                font-size: 16px;
+
+
+            }
+
+        }
+
+        h3 {
+            font-size: 18px;
+            color: $gray-800;
+            font-weight: $fw-700;
+            padding: 0px;
+            margin: 0px;
+
+            @media (max-width: 1367px) {
+                font-size: 16px;
+
+
+            }
+
+            span {
+                color: $primary;
+            }
+        }
+    }
+
+    .blue-strips {
+        padding: 20px 25px;
+        background-color: $primary;
+        margin: 20px -24px 20px;
+
+        p {
+            font-size: 14px;
+            font-weight: $fw-400;
+            color: $light;
+            margin: 0px;
+            padding: 0px;
+
+            @media (max-width: 1367px) {
+                font-size: 12px;
+
+
+            }
+        }
+    }
+
+    .timer-main {
+        ul {
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            margin: 6px 0px 0px;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                margin-right: 20px;
+
+                h4 {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: $light;
+                    margin: 0px;
+
+                    @media (max-width: 1367px) {
+                        font-size: 20px;
+
+
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $bluelight-400;
+
+                    @media (max-width: 1367px) {
+                        font-size: 12px;
+
+
+                    }
+                }
+
+                .pi.pi-arrow-right {
+                    color: $light !important;
+                    font-size: 20px !important;
+
+                    @media (max-width: 1367px) {
+                        font-size: 18px;
+
+
+                    }
+                }
+
+            }
+        }
+
+        .time-outer {
+            p {
+                background-color: $light;
+                color: $dark !important;
+                padding: 7px 20px !important;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .slots-img {
+        padding: 0px !important;
+
+        img {
+            width: 100%;
+            min-height: 400px;
+
+        }
+    }
+}
+
+.p-dialog .p-dialog-header {
+    display: none !important;
+}
+.custom-popup{
+    .pi{
+        font-size: 18px;
+        margin-top: -10px;
+        color: #929597;
+        cursor: pointer;
+    }
+}

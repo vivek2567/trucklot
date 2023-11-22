@@ -1,0 +1,80 @@
+@import "../../../../assets/scss/variable";
+.parking-listable {
+  background: $light;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  min-height: calc(100vh - 13rem);
+  .table-top {
+    padding:24px 24px 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.sub-text {
+  font-size: $heading2;
+  font-style: normal;
+  font-weight: $fw-500;
+  line-height: normal;
+  margin: 0;
+}
+.truck {
+  display: flex;
+}
+img {
+  color: $primary !important;
+  // border: 0.0625rem solid $primary;
+  // border-radius: 50%;
+  margin-left:-5px;
+  // background: $light;
+  // padding: 0.3125rem 0.1875rem;
+  // background-color: $secondary;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.five-truck {
+  color: $primary !important;
+  border: 0.0625rem solid $primary;
+  padding: 0.3125rem;
+  font-size: $heading6;
+  border-radius: 50%;
+  margin-left: -0.1875rem;
+  background-color: #E2EAFF;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.c-search {
+  input {
+    width: 300px;
+    height: 32px;
+    padding: 0 10px;
+  }
+}
+.slout-outer {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.parking-sloat {
+max-height: calc(377px - 5px);
+  height: 100%;
+  overflow-y: auto;
+}  
+.dashboard-wrapper {
+
+  max-height: calc(100vh - 2rem) !important;
+}
+.address-box {
+  width: 350px;
+}
+
+

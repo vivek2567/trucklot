@@ -1,0 +1,62 @@
+trigger:
+  - development
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+pr: none
+
+stages:
+# - stage: SONARQUBE 
+#   displayName: SONARQUBE 
+#   jobs:  
+#   - job: Sonarqube
+#     displayName: Sonarqube
+#     steps:
+
+#     - task: SonarQubePrepare@5
+#       inputs:
+#         SonarQube: 'Sonar Service Connection'
+#         scannerMode: 'CLI'
+#         configMode: 'manual'
+#         cliProjectKey: $(SONAR_PROJECT_KEY)
+#         cliProjectName: $(SONAR_PROJECT_NAME)
+#         cliSources: '.'
+
+#     - task: SonarQubeAnalyze@5
+#       inputs:
+#         jdkversion: 'JAVA_HOME_11_X64'
+    
+#     - task: SonarQubePublish@5
+#       inputs:
+#         pollingTimeoutSec: '300'
+        
+
+- stage: TEST 
+  displayName: TEST 
+  jobs:  
+  - job: Test
+    displayName: Test
+    steps:
+    - script: |
+         npm install
+         npm run test
+
+
+- stage: DEPLOY 
+  displayName: DEPLOY 
+  jobs:  
+  - job: Deploy
+    displayName: Deploy
+    steps:
+    
+    - task: AzureStaticWebApp@0
+      inputs:
+        azure_static_web_apps_api_token: $(WEB_API_TOKEN)
+        app_location: "/" 
+        api_location: "" 
+        output_location: "dist/truck-lots-fe"
+      env: 
+        production : $(production)
+        endpoint : $(endpoint)
+        
